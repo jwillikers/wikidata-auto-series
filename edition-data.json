@@ -1,0 +1,23 @@
+{
+  "range": [
+    "3"
+  ],
+  "items": [
+    {
+      "index": "3",
+      "publication_date": "yyyy-mm-dd",
+      "wikidata_work_id": "",
+      "isbn-13": "",
+      "isbn-10": "",
+      "bookbrainz_edition_id": "",
+      "oclc_number": "",
+      "open_library_edition_id": "",
+      "goodreads_version_id": "",
+      "google_books_id": "",
+      "asin": "",
+      "hoopla_title_id": "",
+      "comic_vine_id": "",
+      "isfdb_publication_id": ""
+    }
+  ]
+}

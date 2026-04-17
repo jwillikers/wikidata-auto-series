@@ -1,0 +1,206 @@
+= Wikidata Auto Series
+Jordan Williams <jordan@jwillikers.com>
+:experimental:
+:icons: font
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+:Asciidoctor_: https://asciidoctor.org/[Asciidoctor]
+:just: https://github.com/casey/just[just]
+:Linux: https://www.linuxfoundation.org/[Linux]
+:Lix: https://lix.systems[Lix]
+:Nix: https://nixos.org/[Nix]
+:nix-direnv: https://github.com/nix-community/nix-direnv[nix-direnv]
+:Nushell: https://www.nushell.sh/[Nushell]
+:pre-commit: https://github.com/nix-community/nixpkgs-update[pre-commit]
+:Wikidata: https://www.wikidata.org/wiki/Wikidata:Main_Page[Wikidata]
+:Wikidata-REST-API: https://doc.wikimedia.org/Wikibase/master/js/rest-api/[Wikidata REST API]
+:Wikidata-REST-API-Documentation: https://www.wikidata.org/wiki/Wikidata:REST_API[Wikidata REST API]
+
+This is a simple project to automate the creation of multiple works and editions in a series on {Wikidata} by leveraging basic templating and the {Wikidata-REST-API}.
+
+It's helpful for adding series which contain many works, such as novel, manga, and light novel series.
+
+== How it Works
+
+This project tries to be as simple as possible.
+You create an item on Wikidata for the first element of a series.
+Then, you retrieve it in JSON form using the Wikidata API.
+You template the JSON response, add your data for the templated values in a file, and then run the script to submit the items to Wikidata.
+
+== Getting Started
+
+This project uses {Nix} to manage the {Nushell} version, but so long as you have a compatible version of Nushell available, Nix is not necessary as there are no other dependencies.
+The instructions here are for Linux
+While this script can be used more generally, my focus is in the domain of book metadata and that's what these instructions will describe.
+You will need to have a Wikidata account.
+
+. Install an implementation of {Nix}, such as {Lix} used here.
++
+[,sh]
+----
+curl -sSf -L https://install.lix.systems/lix | sh -s -- install
+----
+
+. Clone this project's repository.
++
+[,sh]
+----
+git clone https://github.com/jwillikers/wikidata-auto-series.git
+----
+
+. Change into the project directory.
++
+[,sh]
+----
+cd wikidata-auto-series
+----
+
+. Set the environment variable `WIKIDATA_USERNAME` to your user's Wikidata username.
+I use the fish shell, thus the syntax below.
++
+[,sh]
+----
+set --export --universal WIKIDATA_USERNAME '<username>'
+----
+
+. Create a Wikidata API token according to the https://www.wikidata.org/wiki/Wikidata:REST_API/Authentication#Setting_up_OAuth_2.0[Setting up OAuth 2.0 instructions].
+.. Log in to Wikidata.
+.. Register a new OAuth client https://meta.wikimedia.org/wiki/Special:OAuthConsumerRegistration/propose/oauth2[here].
+... Include the work `test` in the application name to make a temporary token that will last 30 days and not require approval.
+... Check the box `This consumer is for use only by <username>`.
+... For `Applicable project`, select `www.wikidata.org`.
+... For `Applicable grants`, be sure to check the following.
++
+.Applicable Grants
+* [x] Edit existing pages
+* [x] Create, edit, and move pages
+... Check the final box to agree to the terms.
+... Hit btn:[Propose consumer].
+
+. Set the environment variable `WIKIDATA_ACCESS_TOKEN` to the access token for your API OAuth2 token created in the previous step.
++
+[,sh]
+----
+set --export --universal WIKIDATA_ACCESS_TOKEN '<access-token>'
+----
+
+. Create the first item in the series on Wikidata.
++
+[TIP]
+====
+Make sure everything is kosher.
+====
+
+. Create a template from the Wikidata item with the `template.nu` script.
++
+[,sh]
+----
+nix develop --command ./template.nu Q123456789 template.json
+----
+
+. Replace values unique to individual elements in the template file with template variables using two double curly braces and spaces to surround the template variable names, such as `{{ index }}`.
+Example templates can be found in the `examples` directory.
+
+. Ensure that all template variables have been added to the `template_variables` list in the `wikidata-auto-series.nu` script.
+I should probably automate parsing these from the template file, but for now, they need to be added manually.
+
+. Update the `work-data.json` or `edition-data.json` file with the details for each item in the series.
+Example data files can be found in the `examples` directory.
+The `work-data.json` file is meant for creating individual literary works in a series while editions are for the versions, editions, and translations of existing works.
+The `range` field contains each index of an item to add.
++
+[IMPORTANT]
+====
+Only add the very first index in the range field for now.
+====
+
+. Now, run the `wikidata-auto-series.nu` script, but only for the very first item.
+The first argument is the template, and the second is the data file.
+Pass the previously created Wikidata item id to the `--previous` flag to automatically link the new item to the previous one in the series.
++
+[,sh]
+----
+nix develop --command ./wikidata-auto-series.nu template.json work-data.json --previous Q123456789
+----
+
+. Verify that the new item is correct on Wikidata.
+If it is not, make the necessary tweaks, update the `range` field to be the next index in the `work-data.json` or `edition-data.json` file, and repeat for the next individual item until everything is perfect.
+
+. After verifying everything correct, add the remaining `range` indices to the `work-data.json` or `edition-data.json` file and run the script to add the remaining items of the series.
+
+== Development
+
+I've added development environment and some helpers using {Nix}.
+The `nix develop` command can be used to enter or run commands in an environment with all of the necessary dependencies.
+For convenience, direnv can be used to automatically load this environment when entering the project's directory.
+The https://marketplace.visualstudio.com/items?itemName=mkhl.direnv[mkhl.direnv VSCode extension] integrates this environment in VSCode for development.
+Nix also generates the configuration for {pre-commit}, which automates formatting and various checks when committing changes.
+Follow the instructions here to set up your development environment using Nix.
+
+. Install direnv for your system according to the https://direnv.net/docs/installation.html[direnv installation instructions].
++
+[,sh]
+----
+sudo rpm-ostree install direnv
+sudo systemctl reboot
+----
+
+. Integrate direnv with your shell by following the instructions on the https://direnv.net/docs/hook.html[direnv Setup page].
+
+. Permit the direnv configuration for the repository.
++
+[,sh]
+----
+direnv allow
+----
+
+. Modify the `wikidata-auto-series.nu` script.
+
+. Run the `wikidata-auto-series.nu` script.
++
+[,sh]
+----
+./wikidata-auto-series.nu template.json work-data.json --previous Q123456789
+----
+
+== References
+
+* {Wikidata-REST-API}
+* {Wikidata-REST-API-Documentation}
+
+== Contributing
+
+Contributions in the form of issues, feedback, and even pull requests are welcome.
+Make sure to adhere to the project's link:CODE_OF_CONDUCT.adoc[Code of Conduct].
+
+== Open Source Software
+
+This project is built on the hard work of countless open source contributors.
+Several of these projects are enumerated below.
+
+* {Asciidoctor_}
+* {Linux}
+* {Lix}
+* {Nix}
+* {Nushell}
+* {pre-commit}
+* {Wikidata}
+
+== Code of Conduct
+
+Refer to the project's link:CODE_OF_CONDUCT.adoc[Code of Conduct] for details.
+
+== License
+
+This repository is licensed under the https://www.gnu.org/licenses/gpl-3.0.html[GPLv3], a copy of which is provided link:LICENSE.adoc[here].
+
+© 2026 Jordan Williams
+
+== Authors
+
+mailto:{email}[{author}]

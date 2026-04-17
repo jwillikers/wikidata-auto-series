@@ -1,0 +1,598 @@
+{
+  "item": {
+    "labels": {
+      "en": "Land of the Lustrous {{ index }}"
+    },
+    "descriptions": {
+      "en": "{{ publication_year }} ebook edition, en, Kodansha Comics"
+    },
+    "aliases": {
+      "en": [
+        "Land of the Lustrous, Volume {{ index }}",
+        "Land of the Lustrous, Vol. {{ index }}"
+      ]
+    },
+    "statements": {
+      "P31": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P31",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q3331189"
+          }
+        }
+      ],
+      "P437": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P437",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q128093"
+          }
+        }
+      ],
+      "P750": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P750",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q389251"
+          }
+        },
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P750",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q3884"
+          }
+        }
+      ],
+      "P577": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P577",
+            "data_type": "time"
+          },
+          "value": {
+            "type": "value",
+            "content": {
+              "time": "+{{ publication_date }}T00:00:00Z",
+              "precision": 11,
+              "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+            }
+          }
+        }
+      ],
+      "P407": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P407",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q1860"
+          }
+        }
+      ],
+      "P1476": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P1476",
+            "data_type": "monolingualtext"
+          },
+          "value": {
+            "type": "value",
+            "content": {
+              "text": "Land of the Lustrous {{ index }}",
+              "language": "en"
+            }
+          }
+        }
+      ],
+      "P291": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P291",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q60"
+          }
+        }
+      ],
+      "P50": [
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P1932",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "Haruko Ichikawa"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P50",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q11480318"
+          }
+        }
+      ],
+      "P110": [
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P1932",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "Haruko Ichikawa"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P110",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q11480318"
+          }
+        }
+      ],
+      "P736": [
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P1932",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "Haruko Ichikawa"
+              }
+            },
+            {
+              "property": {
+                "id": "P3831",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q644687"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P736",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q11480318"
+          }
+        },
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P1932",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "Phil Balsman"
+              }
+            },
+            {
+              "property": {
+                "id": "P3831",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q5322166"
+              }
+            },
+            {
+              "property": {
+                "id": "P13187",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "Kodansha Comics edition cover design"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P736",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q134726856"
+          }
+        }
+      ],
+      "P655": [
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P1932",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "Alethea Nibley"
+              }
+            },
+            {
+              "property": {
+                "id": "P13187",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "translator"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P655",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q48816872"
+          }
+        },
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P1932",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "Athena Nibley"
+              }
+            },
+            {
+              "property": {
+                "id": "P13187",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "Athena Nibley"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P655",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q135094777"
+          }
+        }
+      ],
+      "P98": [
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P1932",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "Lauren Scanlan"
+              }
+            },
+            {
+              "property": {
+                "id": "P13187",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "editing"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P98",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q134738622"
+          }
+        }
+      ],
+      "P123": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P123",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q134715686"
+          }
+        }
+      ],
+      "P9191": [
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P1932",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "Evan Hayden"
+              }
+            },
+            {
+              "property": {
+                "id": "P13187",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "lettering"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P9191",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q134551500"
+          }
+        }
+      ],
+      "P212": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P212",
+            "data_type": "external-id"
+          },
+          "value": {
+            "type": "value",
+            "content": "{{ isbn_13 }}"
+          }
+        }
+      ],
+      "P957": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P957",
+            "data_type": "external-id"
+          },
+          "value": {
+            "type": "value",
+            "content": "{{ isbn_10 }}"
+          }
+        }
+      ],
+      "P12351": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P12351",
+            "data_type": "external-id"
+          },
+          "value": {
+            "type": "value",
+            "content": "{{ bookbrainz_edition_id }}"
+          }
+        }
+      ],
+      "P629": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P629",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q139123328"
+          }
+        }
+      ],
+      "P5749": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P5749",
+            "data_type": "external-id"
+          },
+          "value": {
+            "type": "value",
+            "content": "{{ asin }}"
+          }
+        }
+      ],
+      "P2969": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P2969",
+            "data_type": "external-id"
+          },
+          "value": {
+            "type": "value",
+            "content": "{{ goodreads_version_id }}"
+          }
+        }
+      ],
+      "P243": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P243",
+            "data_type": "external-id"
+          },
+          "value": {
+            "type": "value",
+            "content": "{{ oclc_number }}"
+          }
+        }
+      ],
+      "P648": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P648",
+            "data_type": "external-id"
+          },
+          "value": {
+            "type": "value",
+            "content": "{{ open_library_edition_id }}"
+          }
+        }
+      ],
+      "P675": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P675",
+            "data_type": "external-id"
+          },
+          "value": {
+            "type": "value",
+            "content": "{{ google_books_id }}"
+          }
+        }
+      ],
+      "P5905": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P5905",
+            "data_type": "external-id"
+          },
+          "value": {
+            "type": "value",
+            "content": "{{ comic_vine_id }}"
+          }
+        }
+      ],
+      "P5680": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P5680",
+            "data_type": "external-id"
+          },
+          "value": {
+            "type": "value",
+            "content": "{{ hoopla_title_id }}"
+          }
+        }
+      ]
+    }
+  },
+  "comment": "Adding English eBook edition of Land of the Lustrous {{ index }} to Wikidata"
+}

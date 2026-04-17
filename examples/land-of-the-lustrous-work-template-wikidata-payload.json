@@ -1,0 +1,414 @@
+{
+  "item": {
+    "labels": {
+      "en": "Land of the Lustrous, Volume {{ index }}",
+      "ja": "宝石の国({{ index }})"
+    },
+    "descriptions": {
+      "en": "{{ publication_year }} manga volume by Haruko Ichikawa"
+    },
+    "aliases": {
+      "en": [
+        "Land of the Lustrous, Vol. {{ index }}",
+        "Land of the Lustrous {{ index }}",
+        "Hōseki no Kuni {{ index }}"
+      ]
+    },
+    "statements": {
+      "P31": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P31",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q7725634"
+          }
+        }
+      ],
+      "P1476": [
+        {
+          "rank": "preferred",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P7452",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q71548220"
+              }
+            },
+            {
+              "property": {
+                "id": "P1814",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "ほうせきのくに（{{ index }}）"
+              }
+            },
+            {
+              "property": {
+                "id": "P2125",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "Hōseki no Kuni {{ index }}"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P1476",
+            "data_type": "monolingualtext"
+          },
+          "value": {
+            "type": "value",
+            "content": {
+              "text": "宝石の国({{ index }})",
+              "language": "ja"
+            }
+          }
+        },
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P1476",
+            "data_type": "monolingualtext"
+          },
+          "value": {
+            "type": "value",
+            "content": {
+              "text": "Land of the Lustrous, Volume {{ index }}",
+              "language": "en"
+            }
+          }
+        }
+      ],
+      "P50": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P50",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q11480318"
+          }
+        }
+      ],
+      "P110": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P110",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q11480318"
+          }
+        }
+      ],
+      "P407": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P407",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q5287"
+          }
+        }
+      ],
+      "P577": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P577",
+            "data_type": "time"
+          },
+          "value": {
+            "type": "value",
+            "content": {
+              "time": "+{{ publication_date }}T00:00:00Z",
+              "precision": 11,
+              "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+            }
+          }
+        }
+      ],
+      "P478": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P478",
+            "data_type": "string"
+          },
+          "value": {
+            "type": "value",
+            "content": "{{ index }}"
+          }
+        }
+      ],
+      "P495": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P495",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q17"
+          }
+        }
+      ],
+      "P1434": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P1434",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q139094923"
+          }
+        }
+      ],
+      "P8345": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P8345",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q139094800"
+          }
+        }
+      ],
+      "P179": [
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P1545",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "{{ index }}"
+              }
+            },
+            {
+              "property": {
+                "id": "P155",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "{{ previous_wikidata_item }}"
+              }
+            },
+            {
+              "property": {
+                "id": "P156",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "somevalue"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P179",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q17217234"
+          }
+        }
+      ],
+      "P7937": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P7937",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q8274"
+          }
+        },
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P7937",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q725377"
+          }
+        }
+      ],
+      "P136": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P136",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q15637293"
+          }
+        },
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P136",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q15637301"
+          }
+        },
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P136",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q103016666"
+          }
+        }
+      ],
+      "P6262": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P6262",
+            "data_type": "external-id"
+          },
+          "value": {
+            "type": "value",
+            "content": "houseki-no-kuni:Volume_{{ index }}"
+          }
+        }
+      ],
+      "P1085": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P1085",
+            "data_type": "external-id"
+          },
+          "value": {
+            "type": "value",
+            "content": "{{ librarything_work_id }}"
+          }
+        }
+      ],
+      "P8383": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P8383",
+            "data_type": "external-id"
+          },
+          "value": {
+            "type": "value",
+            "content": "{{ goodreads_work_id }}"
+          }
+        }
+      ],
+      "P648": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P648",
+            "data_type": "external-id"
+          },
+          "value": {
+            "type": "value",
+            "content": "{{ open_library_work_id }}"
+          }
+        }
+      ],
+      "P9818": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P9818",
+            "data_type": "external-id"
+          },
+          "value": {
+            "type": "value",
+            "content": "{{ penguin_random_house_work_id }}"
+          }
+        }
+      ]
+    }
+  },
+  "comment": "Create Land of the Lustrous, Volume {{ index }}"
+}

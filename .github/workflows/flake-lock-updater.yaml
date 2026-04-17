@@ -1,0 +1,25 @@
+name: Flake ❄️ Lock 🔒️ Updater ✨
+
+"on":
+  schedule:
+    # Run on the third and eighteenth of the month.
+    - cron: '0 0 3,18 * *'
+  workflow_dispatch:
+
+jobs:
+  flake-lock-updater:
+    name: Flake Lock Updater
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - uses: DeterminateSystems/nix-installer-action@v21
+      - uses: DeterminateSystems/update-flake-lock@v27
+        with:
+          pr-assignees: ${{ github.repository_owner }}
+          pr-labels: |
+            automated
+            dependencies
+          pr-title: "chore: update flake.lock"
+          token: ${{ secrets.GH_TOKEN_FOR_UPDATES }}

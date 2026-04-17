@@ -19,7 +19,7 @@ endif::[]
 :pre-commit: https://github.com/nix-community/nixpkgs-update[pre-commit]
 :Wikidata: https://www.wikidata.org/wiki/Wikidata:Main_Page[Wikidata]
 :Wikidata-REST-API: https://doc.wikimedia.org/Wikibase/master/js/rest-api/[Wikidata REST API]
-:Wikidata-REST-API-Documentation: https://www.wikidata.org/wiki/Wikidata:REST_API[Wikidata REST API]
+:Wikidata-REST-API-Documentation: https://www.wikidata.org/wiki/Wikidata:REST_API[Wikidata REST API Documentation]
 
 This is a simple project to automate the creation of multiple works and editions in a series on {Wikidata} by leveraging basic templating and the {Wikidata-REST-API}.
 

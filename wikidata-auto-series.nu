@@ -1,5 +1,10 @@
 #!/usr/bin/env nu
 
+# https://www.mediawiki.org/wiki/Manual:Rate_limits
+# Rate Limits are:
+# user: 8 edits per minute.
+# autoconfirmed user (4+ days old account): 90 edits per minute.
+
 use std log
 
 export const wikidata_auto_series_version = "0.0.1"

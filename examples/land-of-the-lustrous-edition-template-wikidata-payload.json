@@ -442,21 +442,6 @@
           }
         }
       ],
-      "P957": [
-        {
-          "rank": "normal",
-          "qualifiers": [],
-          "references": [],
-          "property": {
-            "id": "P957",
-            "data_type": "external-id"
-          },
-          "value": {
-            "type": "value",
-            "content": "{{ isbn_10 }}"
-          }
-        }
-      ],
       "P12351": [
         {
           "rank": "normal",
@@ -499,21 +484,6 @@
           "value": {
             "type": "value",
             "content": "{{ asin }}"
-          }
-        }
-      ],
-      "P2969": [
-        {
-          "rank": "normal",
-          "qualifiers": [],
-          "references": [],
-          "property": {
-            "id": "P2969",
-            "data_type": "external-id"
-          },
-          "value": {
-            "type": "value",
-            "content": "{{ goodreads_version_id }}"
           }
         }
       ],
@@ -574,21 +544,6 @@
           "value": {
             "type": "value",
             "content": "{{ comic_vine_id }}"
-          }
-        }
-      ],
-      "P5680": [
-        {
-          "rank": "normal",
-          "qualifiers": [],
-          "references": [],
-          "property": {
-            "id": "P5680",
-            "data_type": "external-id"
-          },
-          "value": {
-            "type": "value",
-            "content": "{{ hoopla_title_id }}"
           }
         }
       ]

@@ -1,12 +1,12 @@
 {
   "range": [
-    "3"
+    "4"
   ],
   "items": [
     {
       "index": "3",
       "publication_date": "2017-10-24",
-      "wikidata_work_id": "",
+      "wikidata_work_id": "Q139389859",
       "isbn_13": "978-1-68233-936-7",
       "isbn_10": "1-68233-936-X",
       "bookbrainz_edition_id": "528598a1-4ce1-4f06-a668-4e971dd35e96",
@@ -20,23 +20,25 @@
     },
     {
       "index": "4",
-      "publication_date": "",
-      "isbn-13": "",
-      "isbn-10": "",
-      "bookbrainz_edition_id": "",
-      "oclc_number": "",
-      "open_library_edition_id": "",
-      "goodreads_version_id": "",
-      "google_books_id": "",
-      "asin": "",
-      "hoopla_title_id": "",
-      "comic_vine_id": ""
+      "publication_date": "2017-12-26",
+      "wikidata_work_id": "Q139390049",
+      "bookbrainz_edition_id": "f43d86e6-d891-4228-8b77-5ce619f4cbb3",
+      "asin": "B077NSG59W",
+      "isbn_13": "978-1-64212-046-2",
+      "isbn_10": "1-64212-046-4",
+      "oclc_number": "1499901047",
+      "open_library_edition_id": "OL61557026M",
+      "goodreads_version_id": "37539790",
+      "google_books_id": "s5A_DwAAQBAJ",
+      "hoopla_title_id": "16188735",
+      "comic_vine_id": "4000-649397"
     },
     {
       "index": "5",
       "publication_date": "",
-      "isbn-13": "",
-      "isbn-10": "",
+      "wikidata_work_id": "",
+      "isbn_13": "",
+      "isbn_10": "",
       "bookbrainz_edition_id": "",
       "oclc_number": "",
       "open_library_edition_id": "",
@@ -47,10 +49,11 @@
       "comic_vine_id": ""
     },
     {
-      "index": "6",
+      "index": "",
       "publication_date": "",
-      "isbn-13": "",
-      "isbn-10": "",
+      "wikidata_work_id": "",
+      "isbn_13": "",
+      "isbn_10": "",
       "bookbrainz_edition_id": "",
       "oclc_number": "",
       "open_library_edition_id": "",
@@ -61,10 +64,11 @@
       "comic_vine_id": ""
     },
     {
-      "index": "7",
+      "index": "",
       "publication_date": "",
-      "isbn-13": "",
-      "isbn-10": "",
+      "wikidata_work_id": "",
+      "isbn_13": "",
+      "isbn_10": "",
       "bookbrainz_edition_id": "",
       "oclc_number": "",
       "open_library_edition_id": "",
@@ -75,10 +79,11 @@
       "comic_vine_id": ""
     },
     {
-      "index": "8",
+      "index": "",
       "publication_date": "",
-      "isbn-13": "",
-      "isbn-10": "",
+      "wikidata_work_id": "",
+      "isbn_13": "",
+      "isbn_10": "",
       "bookbrainz_edition_id": "",
       "oclc_number": "",
       "open_library_edition_id": "",
@@ -89,10 +94,11 @@
       "comic_vine_id": ""
     },
     {
-      "index": "9",
+      "index": "",
       "publication_date": "",
-      "isbn-13": "",
-      "isbn-10": "",
+      "wikidata_work_id": "",
+      "isbn_13": "",
+      "isbn_10": "",
       "bookbrainz_edition_id": "",
       "oclc_number": "",
       "open_library_edition_id": "",
@@ -103,10 +109,11 @@
       "comic_vine_id": ""
     },
     {
-      "index": "10",
+      "index": "",
       "publication_date": "",
-      "isbn-13": "",
-      "isbn-10": "",
+      "wikidata_work_id": "",
+      "isbn_13": "",
+      "isbn_10": "",
       "bookbrainz_edition_id": "",
       "oclc_number": "",
       "open_library_edition_id": "",
@@ -117,10 +124,11 @@
       "comic_vine_id": ""
     },
     {
-      "index": "11",
+      "index": "",
       "publication_date": "",
-      "isbn-13": "",
-      "isbn-10": "",
+      "wikidata_work_id": "",
+      "isbn_13": "",
+      "isbn_10": "",
       "bookbrainz_edition_id": "",
       "oclc_number": "",
       "open_library_edition_id": "",
@@ -131,10 +139,11 @@
       "comic_vine_id": ""
     },
     {
-      "index": "12",
+      "index": "",
       "publication_date": "",
-      "isbn-13": "",
-      "isbn-10": "",
+      "wikidata_work_id": "",
+      "isbn_13": "",
+      "isbn_10": "",
       "bookbrainz_edition_id": "",
       "oclc_number": "",
       "open_library_edition_id": "",
@@ -145,10 +154,26 @@
       "comic_vine_id": ""
     },
     {
-      "index": "13",
+      "index": "",
       "publication_date": "",
-      "isbn-13": "",
-      "isbn-10": "",
+      "wikidata_work_id": "",
+      "isbn_13": "",
+      "isbn_10": "",
+      "bookbrainz_edition_id": "",
+      "oclc_number": "",
+      "open_library_edition_id": "",
+      "goodreads_version_id": "",
+      "google_books_id": "",
+      "asin": "",
+      "hoopla_title_id": "",
+      "comic_vine_id": ""
+    },
+    {
+      "index": "",
+      "publication_date": "",
+      "wikidata_work_id": "",
+      "isbn_13": "",
+      "isbn_10": "",
       "bookbrainz_edition_id": "",
       "oclc_number": "",
       "open_library_edition_id": "",

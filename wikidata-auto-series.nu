@@ -11,11 +11,28 @@ export const wikidata_base_url = "https://www.wikidata.org/w/rest.php/wikibase/v
 export const template_variables = [
   publication_date
   publication_year
+  # Work identifiers
   open_library_work_id
   librarything_work_id
   goodreads_work_id
   fandom_wiki_article_id
   penguin_random_house_work_id
+  isfdb_title_id
+  isfdb_title_id_1
+  isfdb_title_id_2
+  # Edition identifiers
+  wikidata_work_id
+  isbn_13
+  isbn_10
+  bookbrainz_edition_id
+  oclc_number
+  open_library_edition_id
+  goodreads_version_id
+  google_books_id
+  asin
+  hoopla_title_id
+  comic_vine_id
+  isfdb_publication_id
 ]
 
 export def update_part_of_the_series_followed_by [
@@ -219,13 +236,13 @@ def main [
         $payload | str replace --all "{{ previous_wikidata_item }}" "novalue"
       }
     )
-    log debug $"Submitting payload ($payload)"
+    let payload = $payload | from json
+    log debug $"Submitting payload ($payload | to json)"
     log debug $"Running command: http post --content-type application/json --full --headers {User-Agent: '($user_agent)', Accept: 'application/json', Authorization: 'Bearer <WIKIDATA_ACCESS_TOKEN>', X-Authenticated-User: <WIKIDATA_USERNAME>} '($wikidata_base_url)/entities/items'"
     let response = (
       try {
         (
           $payload
-          | from json
           | (
             http post
               --content-type "application/json"
@@ -240,13 +257,13 @@ def main [
           )
         )
       } catch {|error|
-        log error $"Error submitting payload ($payload) to (ansi yellow)($wikidata_base_url)/entities/items(ansi reset): ($error.debug)"
+        log error $"Error submitting payload ($payload | to json) to (ansi yellow)($wikidata_base_url)/entities/items(ansi reset): ($error.debug)"
         exit 1
       }
     )
     log debug $"HTTP Response: ($response)"
     if ($response.status != 201) {
-      log error $"HTTP error (ansi red)($response.status)(ansi reset) submitting payload ($payload) to (ansi yellow)($wikidata_base_url)/entities/items(ansi reset): ($response.body)"
+      log error $"HTTP error (ansi red)($response.status)(ansi reset) submitting payload ($payload | to json) to (ansi yellow)($wikidata_base_url)/entities/items(ansi reset): ($response.body)"
       exit 1
     }
     let id = $response.body | get --optional id

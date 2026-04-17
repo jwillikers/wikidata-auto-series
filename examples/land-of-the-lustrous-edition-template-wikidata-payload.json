@@ -483,7 +483,7 @@
           },
           "value": {
             "type": "value",
-            "content": "Q139123328"
+            "content": "{{ wikidata_work_id }}"
           }
         }
       ],

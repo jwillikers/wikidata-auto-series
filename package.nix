@@ -1,4 +1,7 @@
 {
+  isbntools,
+  lib,
+  makeWrapper,
   stdenvNoCC,
 }:
 stdenvNoCC.mkDerivation {
@@ -7,10 +10,18 @@ stdenvNoCC.mkDerivation {
 
   src = ./.;
 
+  nativeBuildInputs = [ makeWrapper ];
+
   installPhase = ''
     runHook preInstall
-    install -D --mode=0644 --target-directory=$out/bin wikidata-auto-series.nu
-    install -D --mode=0644 --target-directory=$out/bin template.nu
+    install -D --mode=0755 --target-directory=$out/bin wikidata-auto-series.nu
+    install -D --mode=0755 --target-directory=$out/bin template.nu
+    wrapProgram $out/bin/wikidata-auto-series.nu \
+      --prefix PATH : ${
+        lib.makeBinPath [
+          isbntools
+        ]
+      }
     runHook postInstall
   '';
 }

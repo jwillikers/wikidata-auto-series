@@ -16,6 +16,11 @@ export const wikidata_base_url = "https://www.wikidata.org/w/rest.php/wikibase/v
 export const template_variables = [
   publication_date
   publication_year
+  zero_padded_index
+  subtitle_kanji
+  subtitle_kana
+  subtitle_hepburn
+  subtitle_english
   # Work identifiers
   open_library_work_id
   librarything_work_id
@@ -39,6 +44,34 @@ export const template_variables = [
   comic_vine_id
   isfdb_publication_id
 ]
+
+export def hyphenate_isbn []: [string -> string] {
+  let isbn = $in
+  let result = do { ^isbn_mask $isbn } | complete
+  if ($result.exit_code != 0) {
+    log error $"Error hyphenating ISBN (ansi yellow)($isbn)(ansi reset): ($result.stderr)"
+    return null
+  }
+  if ($result.stdout | is-empty) {
+    log error $"No ISBN output from isbn_mask for ISBN (ansi yellow)($isbn)(ansi reset)"
+    return null
+  }
+  $result.stdout | str trim
+}
+
+export def into_isbn10 []: [string -> string] {
+  let isbn = $in
+  let result = do { ^to_isbn10 $isbn } | complete
+  if ($result.exit_code != 0) {
+    log error $"Error converting ISBN13 (ansi yellow)($isbn)(ansi reset) to ISBN10: ($result.stderr)"
+    return null
+  }
+  if ($result.stdout | is-empty) {
+    log error $"No ISBN output from to_isbn10 for ISBN (ansi yellow)($isbn)(ansi reset)"
+    return null
+  }
+  $result.stdout | str trim
+}
 
 export def update_part_of_the_series_followed_by [
   item_id: string # Wikidata id of the item to modify
@@ -224,10 +257,40 @@ def main [
     let payload = (
       $template_variables
       | reduce --fold $payload {|data_field, payload_acc|
-        let value = $item | get --optional $data_field
+        let value = (
+          if $data_field == "isbn_10" {
+            let isbn13 = $item | get --optional isbn_13
+            if ($isbn13 | is-not-empty) {
+              let isbn10 = $isbn13 | to_isbn10
+              if ($isbn10 | is-empty) {
+                log warning $"Error attempting to produce ISBN10 from the ISBN13 (ansi purple)($isbn13)(ansi reset). Attempting to use ISBN10 if set instead."
+                $item | get --optional $data_field
+              } else {
+                log debug $"Produced ISBN10 (ansi purple)($isbn10)(ansi reset) from ISBN13 (ansi purple)($isbn13)(ansi reset)"
+                $isbn10
+              }
+            } else {
+              $item | get --optional $data_field
+            }
+          } else {
+            $item | get --optional $data_field
+          }
+        )
         if ($value | is-empty) {
           $payload_acc
         } else {
+          let value = (
+            if $data_field == ["isbn_10", "isbn_13"] {
+              let isbn = $value | isbn_mask
+              if ($isbn | is-empty) {
+                log error $"Error hyphenating ISBN value (ansi yellow)($value)(ansi reset) for item with index (ansi yellow)($index)(ansi reset)"
+                exit 1
+              }
+              $isbn
+            } else {
+              $value
+            }
+          )
           $payload_acc | str replace --all $"{{ ($data_field) }}" $value
         }
       }

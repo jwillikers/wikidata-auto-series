@@ -21,6 +21,10 @@ def main [
     log error "Set environment WIKIDATA_ACCESS_TOKEN to your Wikidata access token"
     exit 1
   }
+  if $id =~ '^Q[0-9]+$' {
+    log error $"The Wikidata ID (ansi purple)($id)(ansi reset) must be formatted as the letter 'Q' followed by an integer"
+    exit 1
+  }
 
   let response = (
     try {

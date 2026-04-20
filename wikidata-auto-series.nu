@@ -13,6 +13,7 @@ export const user_agent = $"wikidata-auto-series/($wikidata_auto_series_version)
 
 export const wikidata_base_url = "https://www.wikidata.org/w/rest.php/wikibase/v1"
 
+# todo Verify each template variable is in the correct format
 export const template_variables = [
   publication_date
   publication_year
@@ -43,6 +44,8 @@ export const template_variables = [
   hoopla_title_id
   comic_vine_id
   isfdb_publication_id
+  musicbrainz_release_1
+  musicbrainz_release_2
 ]
 
 export def hyphenate_isbn []: [string -> string] {
@@ -212,6 +215,8 @@ def main [
   data_file: path # Data file containing values for template variables for each item.
   --previous: string # Wikidata ID of previous item in the series
 ] {
+  let id_variables = ($template_variables | reject --optional publication_date publication_year)
+
   let $data = (open $data_file)
   let template = (open $template_file)
 
@@ -222,6 +227,17 @@ def main [
   if "WIKIDATA_ACCESS_TOKEN" not-in $env {
     log error "Set environment WIKIDATA_ACCESS_TOKEN to your Wikidata access token"
     exit 1
+  }
+
+  # Verify that all items have unique ids
+  for id_variable in $id_variables {
+    if ($data | get --optional $id_variable | is-not-empty) {
+      let duplicate_identifiers = $data | get $id_variable | uniq --repeated
+      if ($duplicate_identifiers | length) > 0 {
+        log error $"Duplicate (ansi purple)($id_variable)(ansi reset) identifiers found: (ansi purple)($duplicate_identifiers | str join ' ')(ansi reset)!"
+        exit 1
+      }
+    }
   }
 
   let has_part_of_the_series_statement = (

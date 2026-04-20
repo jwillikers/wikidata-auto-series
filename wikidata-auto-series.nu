@@ -148,7 +148,6 @@ export def update_part_of_the_series_followed_by [
   }
 }
 
-
 # Adds an version, edition, or translation as an edition of a work.
 export def add_edition_to_work [
   wikidata_work_id: string
@@ -215,7 +214,7 @@ def main [
   data_file: path # Data file containing values for template variables for each item.
   --previous: string # Wikidata ID of previous item in the series
 ] {
-  let id_variables = ($template_variables | reject --optional publication_date publication_year)
+  let id_variables = ($template_variables | where $it not-in [publication_date publication_year])
 
   let $data = (open $data_file)
   let template = (open $template_file)
@@ -277,12 +276,12 @@ def main [
           if $data_field == "isbn_10" {
             let isbn13 = $item | get --optional isbn_13
             if ($isbn13 | is-not-empty) {
-              let isbn10 = $isbn13 | to_isbn10
+              let isbn10 = $isbn13 | into_isbn10
               if ($isbn10 | is-empty) {
-                log warning $"Error attempting to produce ISBN10 from the ISBN13 (ansi purple)($isbn13)(ansi reset). Attempting to use ISBN10 if set instead."
+                log warning $"Error attempting to produce ISBN-10 from the ISBN-13 (ansi purple)($isbn13)(ansi reset). Attempting to use ISBN-10 if set instead."
                 $item | get --optional $data_field
               } else {
-                log debug $"Produced ISBN10 (ansi purple)($isbn10)(ansi reset) from ISBN13 (ansi purple)($isbn13)(ansi reset)"
+                log debug $"Produced ISBN-10 (ansi purple)($isbn10)(ansi reset) from ISBN-13 (ansi purple)($isbn13)(ansi reset)"
                 $isbn10
               }
             } else {
@@ -297,7 +296,7 @@ def main [
         } else {
           let value = (
             if $data_field == ["isbn_10", "isbn_13"] {
-              let isbn = $value | isbn_mask
+              let isbn = $value | hyphenate_isbn
               if ($isbn | is-empty) {
                 log error $"Error hyphenating ISBN value (ansi yellow)($value)(ansi reset) for item with index (ansi yellow)($index)(ansi reset)"
                 exit 1
@@ -373,6 +372,8 @@ def main [
     }
   }
 
-  let items_list = $created_items | each {|i| $"https://www.wikidata.org/wiki/($i)"} | str join "\n"
+  let items_list = $created_items | each {|i|
+    $"https://www.wikidata.org/wiki/($i)" | ansi link --text $i
+  } | str join "\n"
   print $"Wikidata items created:\n($items_list)"
 }

@@ -13,6 +13,7 @@
     "framebuf",
     "ifdef",
     "ifndef",
+    "isbntools",
     "jsonfmt",
     "justfile",
     "microcontroller",

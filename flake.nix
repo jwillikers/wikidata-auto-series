@@ -32,24 +32,30 @@
       pre-commit-hooks,
       treefmt-nix,
     }:
+    let
+      overlays = import ./overlays { };
+      overlaysList = with overlays; [
+        isbntools
+        wikidata-auto-series
+      ];
+    in
     flake-utils.lib.eachDefaultSystem (
       system:
       let
-        overlays = import ./overlays { };
         pkgs = import nixpkgs {
-          inherit system overlays;
+          inherit system;
+          overlays = overlaysList;
         };
         pre-commit = pre-commit-hooks.lib.${system}.run (
           import ./pre-commit-hooks.nix { inherit pkgs treefmtEval; }
         );
         treefmtEval = treefmt-nix.lib.evalModule pkgs ./treefmt.nix;
       in
-      with pkgs;
       {
         apps = {
           inherit (nix-update-scripts.apps.${system}) update-nix-direnv update-nixos-release;
         };
-        devShells.default = mkShell {
+        devShells.default = pkgs.mkShell {
           inherit (pre-commit) shellHook;
           nativeBuildInputs =
             with pkgs;
@@ -63,8 +69,13 @@
               (builtins.attrValues treefmtEval.config.build.programs)
             ]
             ++ pre-commit.enabledPackages;
+          inputsFrom = with pkgs; [
+            wikidata-auto-series
+          ];
         };
         packages = {
+          inherit (pkgs) wikidata-auto-series;
+          default = pkgs.wikidata-auto-series;
         };
         formatter = treefmtEval.config.build.wrapper;
       }

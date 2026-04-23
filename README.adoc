@@ -11,6 +11,7 @@ ifdef::env-github[]
 endif::[]
 :Asciidoctor_: https://asciidoctor.org/[Asciidoctor]
 :just: https://github.com/casey/just[just]
+:isbntools: https://github.com/xlcnd/isbntools[isbntools]
 :Linux: https://www.linuxfoundation.org/[Linux]
 :Lix: https://lix.systems[Lix]
 :Nix: https://nixos.org/[Nix]
@@ -34,7 +35,7 @@ You template the JSON response, add your data for the templated values in a file
 
 == Getting Started
 
-This project uses {Nix} to manage the {Nushell} version, but so long as you have a compatible version of Nushell available, Nix is not necessary as there are no other dependencies.
+This project uses {Nix} to manage the {Nushell} version and the {isbntools} dependency.
 The instructions here are for Linux
 While this script can be used more generally, my focus is in the domain of book metadata and that's what these instructions will describe.
 You will need to have a Wikidata account.
@@ -184,6 +185,7 @@ This project is built on the hard work of countless open source contributors.
 Several of these projects are enumerated below.
 
 * {Asciidoctor_}
+* {isbntools}
 * {Linux}
 * {Lix}
 * {Nix}

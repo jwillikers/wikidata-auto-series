@@ -513,7 +513,7 @@
           },
           "value": {
             "type": "value",
-            "content": "{{ open_library_edition_id }}"
+            "content": "{{ open_library_id }}"
           }
         }
       ],

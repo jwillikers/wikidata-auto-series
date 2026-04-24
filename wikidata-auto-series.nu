@@ -22,8 +22,8 @@ export const template_variables = [
   subtitle_kana
   subtitle_hepburn
   subtitle_english
+  open_library_id
   # Work identifiers
-  open_library_work_id
   librarything_work_id
   goodreads_work_id
   fandom_wiki_article_id
@@ -37,7 +37,6 @@ export const template_variables = [
   isbn_10
   bookbrainz_edition_id
   oclc_number
-  open_library_edition_id
   goodreads_version_id
   google_books_id
   asin
@@ -276,7 +275,7 @@ def main [
           if $data_field == "isbn_10" {
             let isbn13 = $item | get --optional isbn_13
             if ($isbn13 | is-not-empty) {
-              let isbn10 = $isbn13 | into_isbn10
+              let isbn10 = $isbn13 | str trim | into_isbn10 | hyphenate_isbn
               if ($isbn10 | is-empty) {
                 log warning $"Error attempting to produce ISBN-10 from the ISBN-13 (ansi purple)($isbn13)(ansi reset). Attempting to use ISBN-10 if set instead."
                 $item | get --optional $data_field

@@ -101,7 +101,7 @@ export def retry_http [
 
 const bookbrainz_identifier_translation_table = {
   "Amazon ASIN": "asin"
-  "Goodreads Book ID": "goodreads_work_id"
+  "Goodreads Book ID": "goodreads_version_id"
   "ISBN-13": "isbn_13"
   "ISBN-10": "isbn_10"
   "OCN/Worldcat ID": "oclc_number"
@@ -149,10 +149,17 @@ export def bookbrainz_get_edition_identifiers [
   } else {
     $identifiers | reduce --fold {} {|type_value_pair, acc|
       # todo Handle multiple values here
+      let value = (
+        if ($type_value_pair.type in ["ISBN-10" "ISBN-13"]) {
+          $type_value_pair.value | str replace --all "-" ""
+        } else {
+          $type_value_pair.value
+        }
+      )
       try {
-        $acc | insert ($bookbrainz_identifier_translation_table | get $type_value_pair.type) $type_value_pair.value
+        $acc | insert ($bookbrainz_identifier_translation_table | get $type_value_pair.type) $value
       } catch {|error|
-        log warning $"Error inserting the value ($type_value_pair.value) for identifier ($bookbrainz_identifier_translation_table | get $type_value_pair.type) into the record ($acc). Most likely a duplicate. Ignoring."
+        log warning $"Error inserting the value ($value) for identifier ($bookbrainz_identifier_translation_table | get $type_value_pair.type) into the record ($acc). Most likely a duplicate. Ignoring."
         $acc
       }
     }
@@ -347,7 +354,7 @@ export def open_library_get_edition_identifiers [
       $acc
     } else {
       if $id == "publish_date" {
-        $acc | insert $id ($response.body | get $id)
+        $acc | insert "publication_date" ($response.body | get $id)
       } else {
         let values = $response.body | get --optional $id
         if ($values | is-empty) {
@@ -363,7 +370,14 @@ export def open_library_get_edition_identifiers [
         if ($values | length) > 1 {
           log warning $"Multiple values for identifier ($id): ($values). Ignoring all but the first."
         }
-        $acc | insert $id $values
+        let value = (
+          if $id in ["isbn_10" "isbn_13"] {
+            $values | first | str replace --all "-" ""
+          } else {
+            $values | first
+          }
+        )
+        $acc | insert $id $value
       }
     }
   }
@@ -435,14 +449,16 @@ def main [
       return $item
     }
     let bookbrainz_work_id = $item | get --optional bookbrainz_work_id
-    let bookbrainz_edition_id = $item | get --optional bookbrainz_work_id
+    let bookbrainz_edition_id = $item | get --optional bookbrainz_edition_id
     # First pass, populate with BookBrainz ids.
     let $bookbrainz_identifiers = (
       if ($bookbrainz_work_id | is-not-empty) {
         $bookbrainz_work_id | bookbrainz_get_work_identifiers
       } else if ($bookbrainz_edition_id | is-not-empty) {
         let identifiers = $bookbrainz_edition_id | bookbrainz_get_edition_identifiers
+        # log debug $"Output of bookbrainz_get_edition_identifiers: ($identifiers)"
         let publication_date = $bookbrainz_edition_id | bookbrainz_get_edition_publication_date
+        # log debug $"Output of bookbrainz_get_edition_publication_date: ($publication_date)"
         let $identifiers = (
           if ($publication_date | is-empty) {
             $identifiers
@@ -475,11 +491,16 @@ def main [
         $open_library_id | open_library_get_edition_identifiers
       }
     )
-    if ($open_library_identifiers | is-empty) {
-      $item
-    } else {
-      $item | merge_identifiers $open_library_identifiers
-    }
+    let item = (
+      if ($open_library_identifiers | is-empty) {
+        $item
+      } else {
+        $item | merge_identifiers $open_library_identifiers
+      }
+    )
+    # Rate-limiting
+    sleep 0.4sec
+    $item
   } | sort-by --natural index
 
   let data = $data | update items $items

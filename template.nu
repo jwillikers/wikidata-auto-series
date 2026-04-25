@@ -28,6 +28,8 @@ export const common_template_variables = {
   P5749: "asin"
   P5680: "hoopla_title_id"
   P1234: "isfdb_publication_id"
+  P243: "oclc_number"
+  P478: "index" # volume property
 }
 
 # Fetch a Wikidata item from the Wikidata API and create a JSON file submission template from it.

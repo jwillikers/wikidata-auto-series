@@ -294,7 +294,7 @@ def main [
           $payload_acc
         } else {
           let value = (
-            if $data_field == ["isbn_10", "isbn_13"] {
+            if $data_field in ["isbn_10", "isbn_13"] {
               let isbn = $value | hyphenate_isbn
               if ($isbn | is-empty) {
                 log error $"Error hyphenating ISBN value (ansi yellow)($value)(ansi reset) for item with index (ansi yellow)($index)(ansi reset)"

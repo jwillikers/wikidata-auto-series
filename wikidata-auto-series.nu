@@ -147,7 +147,10 @@ export def update_part_of_the_series_followed_by [
   }
 }
 
-# Adds an version, edition, or translation as an edition of a work.
+# Adds a version, edition, or translation as an edition of a work.
+#
+# Currently, this only works well for books and not audiobooks.
+# todo Add support for including the duration for audiobooks.
 export def add_edition_to_work [
   wikidata_work_id: string
   wikidata_edition_id: string
@@ -215,6 +218,15 @@ def main [
 ] {
   let id_variables = ($template_variables | where $it not-in [publication_date publication_year])
 
+  if not ($data_file | path parse | get stem | str ends-with "-data") {
+    log warning $"Data file (ansi yellow)($data_file)(ansi reset) doesn't end with '-data', is it the correct file?"
+    sleep 5sec
+  }
+  if not ($template_file | path parse | get stem | str ends-with "-template") {
+    log warning $"Template file (ansi yellow)($template_file)(ansi reset) doesn't end with '-template', is it the correct file?"
+    sleep 5sec
+  }
+
   let $data = (open $data_file)
   let template = (open $template_file)
 
@@ -274,7 +286,7 @@ def main [
         let value = (
           if $data_field == "isbn_10" {
             let isbn13 = $item | get --optional isbn_13
-            if ($isbn13 | is-not-empty) {
+            if ($isbn13 | is-not-empty) and ($isbn13 | str starts-with "978") {
               let isbn10 = $isbn13 | str trim | into_isbn10 | hyphenate_isbn
               if ($isbn10 | is-empty) {
                 log warning $"Error attempting to produce ISBN-10 from the ISBN-13 (ansi purple)($isbn13)(ansi reset). Attempting to use ISBN-10 if set instead."
@@ -314,8 +326,29 @@ def main [
         $payload | str replace --all "{{ previous_wikidata_item }}" ($created_items | last)
       } else if ($previous | is-not-empty) {
         $payload | str replace --all "{{ previous_wikidata_item }}" $previous
+      } else if ($payload | from json | get --optional item.statements.p179 | is-not-empty) {
+        # todo Properly set value.type to "novalue" and remove value.content.
+        # $payload | str replace --all "{{ previous_wikidata_item }}" "novalue"
+        let p179 = $payload | from json | get item.statements.P179
+        $payload | from json | update item.statements.P179 (
+          $p179 | each {|statement|
+            let qualifiers = $statement.qualifiers
+            $statement | update qualifiers (
+              $qualifiers
+              | each {|qualifier|
+                if $qualifier.property.id == "P155" {
+                  $qualifier | update value {
+                    type: "novalue"
+                  }
+                } else {
+                  $qualifier
+                }
+              }
+            )
+          }
+        ) | to json
       } else {
-        $payload | str replace --all "{{ previous_wikidata_item }}" "novalue"
+        $payload
       }
     )
     let payload = $payload | from json

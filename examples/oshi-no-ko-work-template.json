@@ -1,0 +1,413 @@
+{
+  "item": {
+    "labels": {
+      "en": "Oshi no Ko, Volume {{ index }}",
+      "ja": "【推しの子】 {{ index }}"
+    },
+    "descriptions": {
+      "en": "{{ publication_year }} manga volume by Aka Akasaka and Mengo Yokoyari"
+    },
+    "aliases": {
+      "en": [
+        "Oshi no Ko, Vol. {{ index }}",
+        "【Oshi no Ko】 {{ index }}",
+        "[Oshi no Ko], Vol. {{ index }}",
+        "[Oshi no Ko] {{ index }}",
+        "Oshi no Ko {{ index }}",
+        "[Oshi no Ko] ({{ index }})"
+      ]
+    },
+    "statements": {
+      "P31": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P31",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q7725634"
+          }
+        }
+      ],
+      "P7937": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P7937",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q8274"
+          }
+        },
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P7937",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q125632018"
+          }
+        }
+      ],
+      "P407": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P407",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q5287"
+          }
+        }
+      ],
+      "P50": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P50",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q23937543"
+          }
+        }
+      ],
+      "P110": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P110",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q17220992"
+          }
+        }
+      ],
+      "P577": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P577",
+            "data_type": "time"
+          },
+          "value": {
+            "type": "value",
+            "content": {
+              "time": "+{{ publication_date }}T00:00:00Z",
+              "precision": 11,
+              "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+            }
+          }
+        }
+      ],
+      "P1476": [
+        {
+          "rank": "preferred",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P7452",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q71548220"
+              }
+            },
+            {
+              "property": {
+                "id": "P1814",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "おしのこ {{ index }}"
+              }
+            },
+            {
+              "property": {
+                "id": "P2125",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "Oshi no Ko {{ index }}"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P1476",
+            "data_type": "monolingualtext"
+          },
+          "value": {
+            "type": "value",
+            "content": {
+              "text": "【推しの子】 {{ index }}",
+              "language": "ja"
+            }
+          }
+        },
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P1476",
+            "data_type": "monolingualtext"
+          },
+          "value": {
+            "type": "value",
+            "content": {
+              "text": "[Oshi no Ko] {{ index }}",
+              "language": "en"
+            }
+          }
+        }
+      ],
+      "P136": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P136",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q15637299"
+          }
+        },
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P136",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q15637305"
+          }
+        },
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P136",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q61942616"
+          }
+        }
+      ],
+      "P478": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P478",
+            "data_type": "string"
+          },
+          "value": {
+            "type": "value",
+            "content": "{{ index }}"
+          }
+        }
+      ],
+      "P495": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P495",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q17"
+          }
+        }
+      ],
+      "P2360": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P2360",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q237338"
+          }
+        }
+      ],
+      "P179": [
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P1545",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "{{ index }}"
+              }
+            },
+            {
+              "property": {
+                "id": "P155",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "{{ previous_wikidata_item }}"
+              }
+            },
+            {
+              "property": {
+                "id": "P156",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "somevalue"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P179",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q97310775"
+          }
+        }
+      ],
+      "P648": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P648",
+            "data_type": "external-id"
+          },
+          "value": {
+            "type": "value",
+            "content": "{{ open_library_id }}"
+          }
+        }
+      ],
+      "P1085": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P1085",
+            "data_type": "external-id"
+          },
+          "value": {
+            "type": "value",
+            "content": "{{ librarything_work_id }}"
+          }
+        }
+      ],
+      "P8383": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P8383",
+            "data_type": "external-id"
+          },
+          "value": {
+            "type": "value",
+            "content": "{{ goodreads_work_id }}"
+          }
+        }
+      ],
+      "P6262": [
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P407",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q1860"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P6262",
+            "data_type": "external-id"
+          },
+          "value": {
+            "type": "value",
+            "content": "oshinoko:Volume_{{ index }}"
+          }
+        }
+      ],
+      "P8345": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P8345",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q117706180"
+          }
+        }
+      ]
+    }
+  },
+  "comment": ""
+}

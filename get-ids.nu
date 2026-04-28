@@ -111,6 +111,7 @@ const bookbrainz_identifier_translation_table = {
   "MusicBrainz Work ID": "musicbrainz_work_id"
   "OpenLibrary Work ID": "open_library_id"
   "LibraryThing Work ID": "librarything_work_id"
+  "LCCN (Library of Congress Control Number)": "library_of_congress_item_id"
 }
 
 # Fetch the identifiers for a BookBrainz edition
@@ -252,7 +253,7 @@ export def bookbrainz_get_work_identifiers [
 # Fetch the identifiers for an Open Library work
 export def open_library_get_work_identifiers [
   --retries: int = 3 # The number of retries to perform when a request fails
-  --retry-delay: duration = 5sec # The interval between successive attempts when there is a failure
+  --retry-delay: duration = 15sec # The interval between successive attempts when there is a failure
 ]: [string -> table] {
   let open_library_work_id = $in
   let open_library_api_work_url = $"https://openlibrary.org/works/($open_library_work_id).json"
@@ -307,7 +308,7 @@ const open_library_edition_identifier_translation_table = {
 # Fetch the identifiers for an Open Library edition
 export def open_library_get_edition_identifiers [
   --retries: int = 3 # The number of retries to perform when a request fails
-  --retry-delay: duration = 5sec # The interval between successive attempts when there is a failure
+  --retry-delay: duration = 15sec # The interval between successive attempts when there is a failure
 ]: [string -> table] {
   let open_library_edition_id = $in
   let open_library_api_work_url = $"https://openlibrary.org/books/($open_library_edition_id).json"
@@ -350,7 +351,7 @@ export def open_library_get_edition_identifiers [
     }
   )
   [isbn_10 isbn_13 oclc_numbers publish_date] | reduce --fold $identifiers {|id, acc|
-    if ($response.body | $id | is-empty) {
+    if ($response.body | get --optional $id | is-empty) {
       $acc
     } else {
       if $id == "publish_date" {
@@ -425,10 +426,26 @@ def empty_identifiers []: record -> list {
 # It will also attempt to get the publication date for editions.
 def main [
   data_file: path # Data file containing values for template variables for each item.
-  type: string # Must be either 'work' or 'edition'
+  --type: string # Must be either 'work' or 'edition'. Inferred from filename when omitted.
   --output-file: path # Path of the output file. By default, the input data file is overwritten.
 ] {
   let id_variables = ($template_variables | where $it not-in [publication_date publication_year])
+
+  let type = (
+    if ($type | is-empty) {
+      let stem = $data_file | path parse | get stem
+      if ($stem | str ends-with "-work-data") {
+        "work"
+      } else if ($stem | str ends-with "-edition-data") {
+        "edition"
+      } else {
+        log error "Unknown type. Pass 'edition' or 'work' with the --type flag to specify the type."
+        exit 1
+      }
+    } else {
+      $type
+    }
+  )
 
   let $data = (open $data_file)
 

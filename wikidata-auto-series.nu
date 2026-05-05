@@ -153,7 +153,7 @@ def main [
         error make {
           msg: "unsubstituted template variable"
           labels: [
-              {text: "line" span: (metadata $line).span}
+            {text: "line" span: (metadata $line).span}
           ]
           help: $"unsubstituted template variable for index (ansi purple)($index)(ansi reset): (ansi red)($line)(ansi reset)"
         }

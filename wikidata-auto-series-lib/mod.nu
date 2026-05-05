@@ -542,7 +542,7 @@ export def open_library_get_edition_identifiers [
   }
 }
 
-def merge_identifiers [
+export def merge_identifiers [
   identifiers2: record # Identifiers to merge with.
 ]: record -> record {
   let item = $in
@@ -569,7 +569,7 @@ def merge_identifiers [
   }
 }
 
-def empty_identifiers []: record -> list {
+export def empty_identifiers []: record -> list {
   let item = $in
   $item | columns | reduce {|id, acc|
     if ($item | get --optional $id | is-empty) {
@@ -577,5 +577,389 @@ def empty_identifiers []: record -> list {
     } else {
       $acc
     }
+  }
+}
+
+# Calculate the SHA3-512 checksum for a file using rhash.
+export def hash_sha3_512 []: [string -> string] {
+  # File for which to generate the checksum.
+  let file = $in
+  if ($file | is-empty) {
+    error make {
+      msg: "no file provided"
+      labels: [
+        {text: "in" span: (metadata $in).span}
+      ]
+      help: "pipe in the path of the file to hash"
+    }
+  }
+  log debug $"Running command: (ansi yellow)^rhash --printf '%x{sha3-512}' '($file)'(ansi reset)"
+  let result = do { ^rhash --printf '%x{sha3-512}' $file } | complete
+  if ($result.exit_code != 0) {
+    error make {
+      msg: "non-zero exit code from rhash while calculating SHA3-512 checksum"
+      labels: [
+        {text: "result.exit_code" span: (metadata $result.exit_code).span}
+      ]
+      help: $"error calculating the SHA3-512 checksum for the file (ansi yellow)($file)(ansi reset): ($result.stderr)"
+    }
+  }
+  if ($result.stdout | is-empty) {
+    error make {
+      msg: "missing SHA3-512 checksum in stdout"
+      labels: [
+        {text: "result.stdout" span: (metadata $result.stdout).span}
+      ]
+      help: $"no SHA3-512 checksum output by rhash for the file (ansi yellow)($file)(ansi reset): ($result.stderr)"
+    }
+  }
+  $result.stdout | str trim
+}
+
+# Calculate the BLAKE3 checksum for a file using the b3sum utility.
+export def hash_blake3 []: [string -> string] {
+  # File for which to generate the checksum.
+  let file = $in
+  if ($file | is-empty) {
+    error make {
+      msg: "no file provided"
+      labels: [
+        {text: "in" span: (metadata $in).span}
+      ]
+      help: "pipe in the path of the file to hash"
+    }
+  }
+  log debug $"Running command: (ansi yellow)^b3sum --no-names '($file)'(ansi reset)"
+  let result = do { ^b3sum --no-names $file } | complete
+  if ($result.exit_code != 0) {
+    error make {
+      msg: "non-zero exit code from b3sum while calculating the BLAKE3 checksum"
+      labels: [
+        {text: "result.exit_code" span: (metadata $result.exit_code).span}
+      ]
+      help: $"error calculating the BLAKE3 checksum for the file (ansi yellow)($file)(ansi reset): ($result.stderr)"
+    }
+  }
+  if ($result.stdout | is-empty) {
+    error make {
+      msg: "missing BLAKE3 checksum in stdout"
+      labels: [
+        {text: "result.stdout" span: (metadata $result.stdout).span}
+      ]
+      help: $"no BLAKE3 checksum output by b3sum for the file (ansi yellow)($file)(ansi reset): ($result.stderr)"
+    }
+  }
+  $result.stdout | str trim
+}
+
+# List the files in a zip archive
+export def list_files_in_archive []: path -> list<path> {
+  let archive = $in
+  (
+    ^unzip -l $archive
+    | lines
+    | drop nth 0 1
+    | drop 2
+    | str trim
+    | parse "{length}  {date} {time}   {name}"
+    | get name
+    | uniq
+    | sort
+  )
+}
+
+# Get the the associated file extensions for a given file.
+#
+# This returns multiple file extensions when a ZIP archive is provided.
+export def list_file_extensions_for_file []: [path -> list<string>] {
+  let file = $in
+  if ($file | is-empty) {
+    error make {
+      msg: "no file provided"
+      labels: [
+        {text: "in" span: (metadata $in).span}
+      ]
+      help: "pipe in the path of the file to determine its file formats"
+    }
+  }
+  let components = $file | path parse
+  # ^file --brief --mime-type $file
+  if ($components.extension | str downcase) in ["cbz", "zip"] {
+    [($components.extension | str downcase)] | append (
+      $file
+      | list_files_in_archive
+      | path parse
+      | get extension
+      | where ($it | is-not-empty)
+      | str downcase
+      | each {|extension|
+        if $extension == "jpeg" {
+          "jpg"
+        } else {
+          $extension
+        }
+      }
+      | uniq
+    )
+  } else {
+    [($components.extension | str downcase)]
+  }
+}
+
+export const wikidata_file_extension_format_map = {
+  "aax": "Q27960055"
+  "cbz": "Q109335570"
+  "epub": "Q27196933" # Assume EPUB is EPUB3 for now.
+  "epub2": "Q56230180"
+  "epub3": "Q27196933"
+  "jpg": "Q26329975"
+  "jpeg": "Q26329975"
+  "m4a": "Q136095526"
+  "m4b": "Q136095526"
+  "mp3": "Q42591"
+  "png": "Q178051"
+  "pdf": "Q42332"
+  "zip": "Q136218"
+}
+
+# Map file extensions to their corresponding Wikidata item IDs.
+export def map_file_extensions_to_wikidata_file_formats [
+  --epub-version: int = 3 # Assume ePUB files to be this ePUB version, which must be either 2 or 3.
+]: [list<string> -> list<string>] {
+  let file_extensions = $in
+  if ($file_extensions | is-empty) {
+    return []
+  }
+  $file_extensions | each {|file_extension|
+    if $file_extension == "epub" {
+      $wikidata_file_extension_format_map | get $"epub($epub_version)"
+    } else {
+      $wikidata_file_extension_format_map | get $file_extension
+    }
+  }
+}
+
+# Submit a data size (P3575) statement to a Wikidata item.
+export def submit_data_size [
+  item_id: string # Wikidata id to which to add the checksum.
+]: [
+  record<data_size: filesize, distributors: list<string>, file_formats: list<string>, edition_number: string> -> nothing
+] {
+  let data = $in
+  let data_size_mib = (
+    $data.data_size | format filesize MiB | split row ' ' | first
+  )
+  let qualifiers = [] | append (
+    $data.file_formats | each {|file_format|
+      {
+        "property": {
+          "id": "P2701",
+          "data_type": "wikibase-item"
+        },
+        "value": {
+          "type": "value",
+          "content": $file_format
+        }
+      }
+    }
+  ) | append (
+    $data.distributors | each {|distributor|
+      {
+        "property": {
+          "id": "P750",
+          "data_type": "wikibase-item"
+        },
+        "value": {
+          "type": "value",
+          "content": $distributor
+        }
+      }
+    }
+  ) | append (
+    if ($data.edition_number | is-empty) {
+
+    } else {
+      {
+        "property": {
+          "id": "P393",
+          "data_type": "string"
+        },
+        "value": {
+          "type": "value",
+          "content": $data.edition_number
+        }
+      }
+    }
+  )
+  let payload = {
+    "statement": {
+      "rank": "normal",
+      "qualifiers": $qualifiers
+      "references": [],
+      "property": {
+        "id": "P3575",
+        "data_type": "quantity"
+      },
+      "value": {
+        "type": "value",
+        "content": {
+          "amount": $"+($data_size_mib)",
+          "unit": "http://www.wikidata.org/entity/Q79758"
+        }
+      }
+    },
+    "tags": [],
+    "bot": false,
+    "comment": ""
+  }
+  let response = (
+    try {
+      (
+        $payload | http post --content-type "application/json" --full --headers {
+          "User-Agent": $user_agent
+          "Accept": "application/json"
+          "Authorization": $"Bearer ($env.WIKIDATA_ACCESS_TOKEN)"
+          "X-Authenticated-User": $env.WIKIDATA_USERNAME
+        }
+        $"($wikidata_base_url)/entities/items/($item_id)/statements"
+      )
+    } catch {|error|
+      log error $"Error submitting data size Wikidata statement to (ansi yellow)($wikidata_base_url)/entities/items/($item_id)/statements(ansi reset): ($error.debug)"
+      exit 1
+      # error make {
+      #   msg: "no file provided"
+      #   labels: [
+      #     {text: "in" span: (metadata $in).span}
+      #   ]
+      #   help: "pipe in the path of the file to determine its file formats"
+      # }
+    }
+  )
+  if ($response.status != 201) {
+    log error $"HTTP error (ansi red)($response.status)(ansi reset) submitting data size Wikidata statement for Wikidata item ($item_id) to (ansi yellow)($wikidata_base_url)/entities/items/($item_id)/statements(ansi reset): ($response.body)"
+    exit 1
+  }
+}
+
+# Submit a file checksum and the corresponding data size to a Wikidata item.
+export def submit_checksum [
+  item_id: string # Wikidata id to which to add the checksum.
+]: [
+  record<algorithm: string, checksum: string, data_size: filesize, distributors: list<string>, file_formats: list<string>, edition_number: string> -> nothing
+] {
+  let data = $in
+  let data_size_mib = (
+    $data.data_size | format filesize MiB | split row ' ' | first
+  )
+  let qualifiers = [
+    {
+      "property": {
+        "id": "P459",
+        "data_type": "wikibase-item"
+      },
+      "value": {
+        "type": "value",
+        "content": $data.algorithm
+      }
+    },
+    {
+      "property": {
+        "id": "P3575",
+        "data_type": "quantity"
+      },
+      "value": {
+        "type": "value",
+        "content": {
+          "amount": $"+($data_size_mib)",
+          "unit": "http://www.wikidata.org/entity/Q79758"
+        }
+      }
+    },
+  ] | append (
+    $data.file_formats | each {|file_format|
+      {
+        "property": {
+          "id": "P2701",
+          "data_type": "wikibase-item"
+        },
+        "value": {
+          "type": "value",
+          "content": $file_format
+        }
+      }
+    }
+  ) | append (
+    $data.distributors | each {|distributor|
+      {
+        "property": {
+          "id": "P750",
+          "data_type": "wikibase-item"
+        },
+        "value": {
+          "type": "value",
+          "content": $distributor
+        }
+      }
+    }
+  ) | append (
+    if ($data.edition_number | is-empty) {
+
+    } else {
+      {
+        "property": {
+          "id": "P393",
+          "data_type": "string"
+        },
+        "value": {
+          "type": "value",
+          "content": $data.edition_number
+        }
+      }
+    }
+  )
+  let payload = {
+    "statement": {
+      "rank": "normal",
+      "qualifiers": $qualifiers
+      "references": [],
+      "property": {
+        "id": "P4092",
+        "data_type": "string"
+      },
+      "value": {
+        "type": "value",
+        "content": $data.checksum
+      }
+    },
+    "tags": [],
+    "bot": false,
+    "comment": ""
+  }
+  let response = (
+    try {
+      (
+        $payload | http post --content-type "application/json" --full --headers {
+          "User-Agent": $user_agent
+          "Accept": "application/json"
+          "Authorization": $"Bearer ($env.WIKIDATA_ACCESS_TOKEN)"
+          "X-Authenticated-User": $env.WIKIDATA_USERNAME
+        }
+        $"($wikidata_base_url)/entities/items/($item_id)/statements"
+      )
+    } catch {|error|
+      log error $"Error submitting data size Wikidata statement to (ansi yellow)($wikidata_base_url)/entities/items/($item_id)/statements(ansi reset): ($error.debug)"
+      exit 1
+      # error make {
+      #   msg: "no file provided"
+      #   labels: [
+      #     {text: "in" span: (metadata $in).span}
+      #   ]
+      #   help: "pipe in the path of the file to determine its file formats"
+      # }
+    }
+  )
+  if ($response.status != 201) {
+    log error $"HTTP error (ansi red)($response.status)(ansi reset) submitting data size Wikidata statement for Wikidata item ($item_id) to (ansi yellow)($wikidata_base_url)/entities/items/($item_id)/statements(ansi reset): ($response.body)"
+    exit 1
   }
 }

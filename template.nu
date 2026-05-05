@@ -3,6 +3,8 @@
 use std log
 use wikidata-auto-series-lib *
 
+# todo Remove hash item in references.
+
 # todo Handle multiple values?
 # P1274: "isfdb_title_id_1"
 # P7823: "bookbrainz_work_id_1"

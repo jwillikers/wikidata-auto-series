@@ -1,5 +1,4 @@
-_:
-{
+_: {
   isbntools = _final: prev: {
     isbntools = prev.callPackage ./isbntools/package.nix { };
   };

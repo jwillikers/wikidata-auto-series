@@ -743,12 +743,14 @@ export def map_file_extensions_to_wikidata_file_formats [
 export def submit_data_size [
   item_id: string # Wikidata id to which to add the checksum.
 ]: [
-  record<data_size: filesize, distributors: list<string>, file_formats: list<string>, edition_number: string> -> nothing
+  record<data_size: filesize, distributors: list<string>, file_formats: list<string>, edition_number: string, point_in_time: datetime> -> nothing
 ] {
   let data = $in
   let data_size_mib = (
     $data.data_size | format filesize MiB | split row ' ' | first
   )
+  # point_in_time doesn't currently support time components, i.e. the date format '%FT%H:%M:%SZ'
+  let point_in_time = $data.point_in_time | date to-timezone "UTC" | format date '%FT00:00:00Z'
   let qualifiers = [] | append (
     $data.file_formats | each {|file_format|
       {
@@ -790,6 +792,21 @@ export def submit_data_size [
         }
       }
     }
+  ) | append (
+    {
+      "property": {
+        "id": "P585",
+        "data_type": "time"
+      },
+      "value": {
+        "type": "value",
+        "content": {
+          "time": $"+($point_in_time)",
+          "precision": 11,
+          "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+        }
+      }
+    }
   )
   let payload = {
     "statement": {
@@ -812,6 +829,7 @@ export def submit_data_size [
     "bot": false,
     "comment": ""
   }
+  # log debug $"Payload: ($payload)"
   let response = (
     try {
       (
@@ -845,12 +863,14 @@ export def submit_data_size [
 export def submit_checksum [
   item_id: string # Wikidata id to which to add the checksum.
 ]: [
-  record<algorithm: string, checksum: string, data_size: filesize, distributors: list<string>, file_formats: list<string>, edition_number: string> -> nothing
+  record<algorithm: string, checksum: string, data_size: filesize, distributors: list<string>, file_formats: list<string>, edition_number: string, point_in_time: datetime> -> nothing
 ] {
   let data = $in
   let data_size_mib = (
     $data.data_size | format filesize MiB | split row ' ' | first
   )
+  # point_in_time doesn't currently support time components, i.e. the date format '%FT%H:%M:%SZ'
+  let point_in_time = $data.point_in_time | date to-timezone "UTC" | format date '%FT00:00:00Z'
   let qualifiers = [
     {
       "property": {
@@ -913,6 +933,21 @@ export def submit_checksum [
         "value": {
           "type": "value",
           "content": $data.edition_number
+        }
+      }
+    }
+  ) | append (
+    {
+      "property": {
+        "id": "P585",
+        "data_type": "time"
+      },
+      "value": {
+        "type": "value",
+        "content": {
+          "time": $"+($point_in_time)",
+          "precision": 11,
+          "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
         }
       }
     }

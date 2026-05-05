@@ -14,6 +14,7 @@ def main [
   ...files: path
   --epub-version: int = 3 # The EPUB version to use for EPUB files, either 2 or 3.
   --edition-number: string = "" # Relevant edition number, if applicable
+  --point-in-time: string # Date time to use for point in time. Now is used by default.
 ] {
   # todo Verify that wikidata_edition_id is a version, edition, or translation, to ensure it doesn't get swapped with the distributors.
   # todo Verify that distributors are of the correct type
@@ -27,6 +28,14 @@ def main [
     log error "Set environment WIKIDATA_ACCESS_TOKEN to your Wikidata access token"
     exit 1
   }
+
+  let point_in_time = (
+    if ($point_in_time | is-empty) {
+      date now
+    } else {
+      $point_in_time | into datetime
+    }
+  )
 
   let wd_distributors = $distributors | split row ' '
   $files | each {|file|
@@ -43,6 +52,7 @@ def main [
       distributors: $wd_distributors
       file_formats: $wd_file_formats
       edition_number: $edition_number
+      point_in_time: $point_in_time
     } | submit_data_size $wikidata_edition_id
     sleep 0.2sec
     {
@@ -52,6 +62,7 @@ def main [
       distributors: $wd_distributors
       file_formats: $wd_file_formats
       edition_number: $edition_number
+      point_in_time: $point_in_time
     } | submit_checksum $wikidata_edition_id
     sleep 0.2sec
     {
@@ -61,6 +72,7 @@ def main [
       distributors: $wd_distributors
       file_formats: $wd_file_formats
       edition_number: $edition_number
+      point_in_time: $point_in_time
     } | submit_checksum $wikidata_edition_id
     sleep 0.2sec
   }

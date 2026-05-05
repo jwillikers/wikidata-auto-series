@@ -1,17 +1,20 @@
 {
   "item": {
     "labels": {
-      "en": "Land of the Lustrous, Volume {{ index }}",
-      "ja": "宝石の国({{ index }})"
+      "en": "Frieren: Beyond Journey's End, Volume {{ index }}",
+      "ja": "葬送のフリーレン {{ index }}"
     },
     "descriptions": {
-      "en": "{{ publication_year }} manga volume by Haruko Ichikawa"
+      "en": "{{ publication_year }} manga volume by Kanehito Yamada and Tsukasa Abe"
     },
     "aliases": {
       "en": [
-        "Land of the Lustrous, Vol. {{ index }}",
-        "Land of the Lustrous {{ index }}",
-        "Hōseki no Kuni {{ index }}"
+        "Frieren: Beyond Journey's End, Vol. {{ index }}",
+        "Frieren: Beyond Journey's End {{ index }}",
+        "Sōsō no Furīren {{ index }}",
+        "Frieren {{ index }}",
+        "Frieren, Volume {{ index }}",
+        "Frieren, Vol. {{ index }}"
       ]
     },
     "statements": {
@@ -27,6 +30,64 @@
           "value": {
             "type": "value",
             "content": "Q7725634"
+          }
+        }
+      ],
+      "P7937": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P7937",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q8274"
+          }
+        },
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P7937",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q125632018"
+          }
+        }
+      ],
+      "P478": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P478",
+            "data_type": "string"
+          },
+          "value": {
+            "type": "value",
+            "content": "{{ index }}"
+          }
+        }
+      ],
+      "P407": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P407",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q5287"
           }
         }
       ],
@@ -51,7 +112,7 @@
               },
               "value": {
                 "type": "value",
-                "content": "ほうせきのくに（{{ index }}）"
+                "content": "そうそうのフリーレン {{ index }}"
               }
             },
             {
@@ -61,7 +122,7 @@
               },
               "value": {
                 "type": "value",
-                "content": "Hōseki no Kuni {{ index }}"
+                "content": "Sōsō no Furīre {{ index }}"
               }
             }
           ],
@@ -73,7 +134,7 @@
           "value": {
             "type": "value",
             "content": {
-              "text": "宝石の国({{ index }})",
+              "text": "葬送のフリーレン {{ index }}",
               "language": "ja"
             }
           }
@@ -89,7 +150,7 @@
           "value": {
             "type": "value",
             "content": {
-              "text": "Land of the Lustrous, Volume {{ index }}",
+              "text": "Frieren: Beyond Journey's End, Volume {{ index }}",
               "language": "en"
             }
           }
@@ -106,7 +167,7 @@
           },
           "value": {
             "type": "value",
-            "content": "Q11480318"
+            "content": "Q38277627"
           }
         }
       ],
@@ -121,22 +182,7 @@
           },
           "value": {
             "type": "value",
-            "content": "Q11480318"
-          }
-        }
-      ],
-      "P407": [
-        {
-          "rank": "normal",
-          "qualifiers": [],
-          "references": [],
-          "property": {
-            "id": "P407",
-            "data_type": "wikibase-item"
-          },
-          "value": {
-            "type": "value",
-            "content": "Q5287"
+            "content": "Q105258125"
           }
         }
       ],
@@ -159,18 +205,44 @@
           }
         }
       ],
-      "P478": [
+      "P136": [
         {
           "rank": "normal",
           "qualifiers": [],
           "references": [],
           "property": {
-            "id": "P478",
-            "data_type": "string"
+            "id": "P136",
+            "data_type": "wikibase-item"
           },
           "value": {
             "type": "value",
-            "content": "{{ index }}"
+            "content": "Q15712918"
+          }
+        },
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P136",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q15637299"
+          }
+        },
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P136",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q15637301"
           }
         }
       ],
@@ -200,7 +272,7 @@
           },
           "value": {
             "type": "value",
-            "content": "Q139094923"
+            "content": "Q120087414"
           }
         }
       ],
@@ -215,7 +287,33 @@
           },
           "value": {
             "type": "value",
-            "content": "Q139094800"
+            "content": "Q120087412"
+          }
+        }
+      ],
+      "P6262": [
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P407",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q1860"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P6262",
+            "data_type": "external-id"
+          },
+          "value": {
+            "type": "value",
+            "content": "frieren:Volume_{{ index }}"
           }
         }
       ],
@@ -260,121 +358,7 @@
           },
           "value": {
             "type": "value",
-            "content": "Q17217234"
-          }
-        }
-      ],
-      "P7937": [
-        {
-          "rank": "normal",
-          "qualifiers": [],
-          "references": [],
-          "property": {
-            "id": "P7937",
-            "data_type": "wikibase-item"
-          },
-          "value": {
-            "type": "value",
-            "content": "Q8274"
-          }
-        },
-        {
-          "rank": "normal",
-          "qualifiers": [],
-          "references": [],
-          "property": {
-            "id": "P7937",
-            "data_type": "wikibase-item"
-          },
-          "value": {
-            "type": "value",
-            "content": "Q725377"
-          }
-        }
-      ],
-      "P136": [
-        {
-          "rank": "normal",
-          "qualifiers": [],
-          "references": [],
-          "property": {
-            "id": "P136",
-            "data_type": "wikibase-item"
-          },
-          "value": {
-            "type": "value",
-            "content": "Q15637293"
-          }
-        },
-        {
-          "rank": "normal",
-          "qualifiers": [],
-          "references": [],
-          "property": {
-            "id": "P136",
-            "data_type": "wikibase-item"
-          },
-          "value": {
-            "type": "value",
-            "content": "Q15637301"
-          }
-        },
-        {
-          "rank": "normal",
-          "qualifiers": [],
-          "references": [],
-          "property": {
-            "id": "P136",
-            "data_type": "wikibase-item"
-          },
-          "value": {
-            "type": "value",
-            "content": "Q103016666"
-          }
-        }
-      ],
-      "P6262": [
-        {
-          "rank": "normal",
-          "qualifiers": [],
-          "references": [],
-          "property": {
-            "id": "P6262",
-            "data_type": "external-id"
-          },
-          "value": {
-            "type": "value",
-            "content": "houseki-no-kuni:Volume_{{ index }}"
-          }
-        }
-      ],
-      "P1085": [
-        {
-          "rank": "normal",
-          "qualifiers": [],
-          "references": [],
-          "property": {
-            "id": "P1085",
-            "data_type": "external-id"
-          },
-          "value": {
-            "type": "value",
-            "content": "{{ librarything_work_id }}"
-          }
-        }
-      ],
-      "P8383": [
-        {
-          "rank": "normal",
-          "qualifiers": [],
-          "references": [],
-          "property": {
-            "id": "P8383",
-            "data_type": "external-id"
-          },
-          "value": {
-            "type": "value",
-            "content": "{{ goodreads_work_id }}"
+            "content": "Q98642652"
           }
         }
       ],
@@ -393,22 +377,52 @@
           }
         }
       ],
-      "P9818": [
+      "P8383": [
         {
           "rank": "normal",
           "qualifiers": [],
           "references": [],
           "property": {
-            "id": "P9818",
+            "id": "P8383",
             "data_type": "external-id"
           },
           "value": {
             "type": "value",
-            "content": "{{ penguin_random_house_work_id }}"
+            "content": "{{ goodreads_work_id }}"
+          }
+        }
+      ],
+      "P2360": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P2360",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q231302"
+          }
+        }
+      ],
+      "P1085": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P1085",
+            "data_type": "external-id"
+          },
+          "value": {
+            "type": "value",
+            "content": "{{ librarything_work_id }}"
           }
         }
       ]
     }
   },
-  "comment": "Create Land of the Lustrous, Volume {{ index }}"
+  "comment": ""
 }

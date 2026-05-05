@@ -1,17 +1,19 @@
 {
   "item": {
     "labels": {
-      "en": "Land of the Lustrous, Volume {{ index }}",
-      "ja": "宝石の国({{ index }})"
+      "en": "Vinland Saga Omnibus, Volume {{ index }}"
     },
     "descriptions": {
-      "en": "{{ publication_year }} manga volume by Haruko Ichikawa"
+      "en": "{{ publication_year }} manga omnibus by Makoto Yukimura"
     },
     "aliases": {
       "en": [
-        "Land of the Lustrous, Vol. {{ index }}",
-        "Land of the Lustrous {{ index }}",
-        "Hōseki no Kuni {{ index }}"
+        "Vinland Saga, Vol. {{ index }}",
+        "Vinland Saga {{ index }}",
+        "Vinland Saga Omnibus, Vol. {{ index }}",
+        "Vinland Saga Omnibus {{ index }}",
+        "Vinland Saga, Book {{ index }}",
+        "Vinland Saga, Volume {{ index }}"
       ]
     },
     "statements": {
@@ -30,71 +32,6 @@
           }
         }
       ],
-      "P1476": [
-        {
-          "rank": "preferred",
-          "qualifiers": [
-            {
-              "property": {
-                "id": "P7452",
-                "data_type": "wikibase-item"
-              },
-              "value": {
-                "type": "value",
-                "content": "Q71548220"
-              }
-            },
-            {
-              "property": {
-                "id": "P1814",
-                "data_type": "string"
-              },
-              "value": {
-                "type": "value",
-                "content": "ほうせきのくに（{{ index }}）"
-              }
-            },
-            {
-              "property": {
-                "id": "P2125",
-                "data_type": "string"
-              },
-              "value": {
-                "type": "value",
-                "content": "Hōseki no Kuni {{ index }}"
-              }
-            }
-          ],
-          "references": [],
-          "property": {
-            "id": "P1476",
-            "data_type": "monolingualtext"
-          },
-          "value": {
-            "type": "value",
-            "content": {
-              "text": "宝石の国({{ index }})",
-              "language": "ja"
-            }
-          }
-        },
-        {
-          "rank": "normal",
-          "qualifiers": [],
-          "references": [],
-          "property": {
-            "id": "P1476",
-            "data_type": "monolingualtext"
-          },
-          "value": {
-            "type": "value",
-            "content": {
-              "text": "Land of the Lustrous, Volume {{ index }}",
-              "language": "en"
-            }
-          }
-        }
-      ],
       "P50": [
         {
           "rank": "normal",
@@ -106,7 +43,7 @@
           },
           "value": {
             "type": "value",
-            "content": "Q11480318"
+            "content": "Q1269354"
           }
         }
       ],
@@ -121,7 +58,7 @@
           },
           "value": {
             "type": "value",
-            "content": "Q11480318"
+            "content": "Q1269354"
           }
         }
       ],
@@ -137,6 +74,50 @@
           "value": {
             "type": "value",
             "content": "Q5287"
+          }
+        }
+      ],
+      "P767": [
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P3831",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q15978655"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P767",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q64350079"
+          }
+        }
+      ],
+      "P1476": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P1476",
+            "data_type": "monolingualtext"
+          },
+          "value": {
+            "type": "value",
+            "content": {
+              "text": "Vinland Saga Omnibus, Volume {{ index }}",
+              "language": "en"
+            }
           }
         }
       ],
@@ -159,18 +140,44 @@
           }
         }
       ],
-      "P478": [
+      "P136": [
         {
           "rank": "normal",
           "qualifiers": [],
           "references": [],
           "property": {
-            "id": "P478",
-            "data_type": "string"
+            "id": "P136",
+            "data_type": "wikibase-item"
           },
           "value": {
             "type": "value",
-            "content": "{{ index }}"
+            "content": "Q15712918"
+          }
+        },
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P136",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q136913634"
+          }
+        },
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P136",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q101240934"
           }
         }
       ],
@@ -189,18 +196,94 @@
           }
         }
       ],
-      "P1434": [
+      "P7937": [
         {
           "rank": "normal",
           "qualifiers": [],
           "references": [],
           "property": {
-            "id": "P1434",
+            "id": "P7937",
             "data_type": "wikibase-item"
           },
           "value": {
             "type": "value",
-            "content": "Q139094923"
+            "content": "Q8274"
+          }
+        },
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P7937",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q125632018"
+          }
+        }
+      ],
+      "P2635": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P2635",
+            "data_type": "quantity"
+          },
+          "value": {
+            "type": "value",
+            "content": {
+              "amount": "+2",
+              "unit": "http://www.wikidata.org/entity/Q125632018"
+            }
+          }
+        }
+      ],
+      "P8383": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P8383",
+            "data_type": "external-id"
+          },
+          "value": {
+            "type": "value",
+            "content": "{{ goodreads_work_id }}"
+          }
+        }
+      ],
+      "P1085": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P1085",
+            "data_type": "external-id"
+          },
+          "value": {
+            "type": "value",
+            "content": "{{ librarything_work_id }}"
+          }
+        }
+      ],
+      "P648": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P648",
+            "data_type": "external-id"
+          },
+          "value": {
+            "type": "value",
+            "content": "{{ open_library_id }}"
           }
         }
       ],
@@ -215,7 +298,22 @@
           },
           "value": {
             "type": "value",
-            "content": "Q139094800"
+            "content": "Q124290761"
+          }
+        }
+      ],
+      "P2360": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P2360",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q237338"
           }
         }
       ],
@@ -260,136 +358,22 @@
           },
           "value": {
             "type": "value",
-            "content": "Q17217234"
+            "content": "Q930990"
           }
         }
       ],
-      "P7937": [
+      "P478": [
         {
           "rank": "normal",
           "qualifiers": [],
           "references": [],
           "property": {
-            "id": "P7937",
-            "data_type": "wikibase-item"
+            "id": "P478",
+            "data_type": "string"
           },
           "value": {
             "type": "value",
-            "content": "Q8274"
-          }
-        },
-        {
-          "rank": "normal",
-          "qualifiers": [],
-          "references": [],
-          "property": {
-            "id": "P7937",
-            "data_type": "wikibase-item"
-          },
-          "value": {
-            "type": "value",
-            "content": "Q725377"
-          }
-        }
-      ],
-      "P136": [
-        {
-          "rank": "normal",
-          "qualifiers": [],
-          "references": [],
-          "property": {
-            "id": "P136",
-            "data_type": "wikibase-item"
-          },
-          "value": {
-            "type": "value",
-            "content": "Q15637293"
-          }
-        },
-        {
-          "rank": "normal",
-          "qualifiers": [],
-          "references": [],
-          "property": {
-            "id": "P136",
-            "data_type": "wikibase-item"
-          },
-          "value": {
-            "type": "value",
-            "content": "Q15637301"
-          }
-        },
-        {
-          "rank": "normal",
-          "qualifiers": [],
-          "references": [],
-          "property": {
-            "id": "P136",
-            "data_type": "wikibase-item"
-          },
-          "value": {
-            "type": "value",
-            "content": "Q103016666"
-          }
-        }
-      ],
-      "P6262": [
-        {
-          "rank": "normal",
-          "qualifiers": [],
-          "references": [],
-          "property": {
-            "id": "P6262",
-            "data_type": "external-id"
-          },
-          "value": {
-            "type": "value",
-            "content": "houseki-no-kuni:Volume_{{ index }}"
-          }
-        }
-      ],
-      "P1085": [
-        {
-          "rank": "normal",
-          "qualifiers": [],
-          "references": [],
-          "property": {
-            "id": "P1085",
-            "data_type": "external-id"
-          },
-          "value": {
-            "type": "value",
-            "content": "{{ librarything_work_id }}"
-          }
-        }
-      ],
-      "P8383": [
-        {
-          "rank": "normal",
-          "qualifiers": [],
-          "references": [],
-          "property": {
-            "id": "P8383",
-            "data_type": "external-id"
-          },
-          "value": {
-            "type": "value",
-            "content": "{{ goodreads_work_id }}"
-          }
-        }
-      ],
-      "P648": [
-        {
-          "rank": "normal",
-          "qualifiers": [],
-          "references": [],
-          "property": {
-            "id": "P648",
-            "data_type": "external-id"
-          },
-          "value": {
-            "type": "value",
-            "content": "{{ open_library_id }}"
+            "content": "{{ index }}"
           }
         }
       ],
@@ -410,5 +394,5 @@
       ]
     }
   },
-  "comment": "Create Land of the Lustrous, Volume {{ index }}"
+  "comment": ""
 }

@@ -1,0 +1,1448 @@
+{
+  "item": {
+    "labels": {
+      "en": "Vinland Saga, Volume {{ index }}"
+    },
+    "descriptions": {
+      "en": "{{ publication_year }} ebook omnibus edition, en, Kodansha Comics"
+    },
+    "aliases": {
+      "en": [
+        "Vinland Saga, Vol. {{ index }}",
+        "Vinland Saga {{ index }}",
+        "Vinland Saga Omnibus, Volume {{ index }}",
+        "Vinland Saga Omnibus, Vol. {{ index }}",
+        "Vinland Saga Omnibus {{ index }}",
+        "Vinland Saga, Book {{ index }}"
+      ]
+    },
+    "statements": {
+      "P31": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P31",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q3331189"
+          }
+        },
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P31",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q13137339"
+          }
+        }
+      ],
+      "P407": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P407",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q1860"
+          }
+        }
+      ],
+      "P577": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P577",
+            "data_type": "time"
+          },
+          "value": {
+            "type": "value",
+            "content": {
+              "time": "+{{ publication_date }}T00:00:00Z",
+              "precision": 11,
+              "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+            }
+          }
+        }
+      ],
+      "P1476": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P1476",
+            "data_type": "monolingualtext"
+          },
+          "value": {
+            "type": "value",
+            "content": {
+              "text": "Vinland Saga, Volume {{ index }}",
+              "language": "en"
+            }
+          }
+        }
+      ],
+      "P50": [
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P1932",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "Makoto Yukimura"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P50",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q1269354"
+          }
+        }
+      ],
+      "P110": [
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P1932",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "Makoto Yukimura"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P110",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q1269354"
+          }
+        }
+      ],
+      "P291": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P291",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q60"
+          }
+        }
+      ],
+      "P123": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P123",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q134715686"
+          }
+        }
+      ],
+      "P6216": [
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P275",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q1752207"
+              }
+            },
+            {
+              "property": {
+                "id": "P518",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q113784867"
+              }
+            },
+            {
+              "property": {
+                "id": "P9905",
+                "data_type": "time"
+              },
+              "value": {
+                "type": "value",
+                "content": {
+                  "time": "+{{ publication_year }}-00-00T00:00:00Z",
+                  "precision": 9,
+                  "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+                }
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P6216",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q50423863"
+          }
+        }
+      ],
+      "P3931": [
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P1932",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "Makoto Yukimura"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P3931",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q1269354"
+          }
+        }
+      ],
+      "P212": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P212",
+            "data_type": "external-id"
+          },
+          "value": {
+            "type": "value",
+            "content": "{{ isbn_13 }}"
+          }
+        }
+      ],
+      "P437": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P437",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q139660346"
+          }
+        },
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P437",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q139660326"
+          }
+        }
+      ],
+      "P750": [
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P2699",
+                "data_type": "url"
+              },
+              "value": {
+                "type": "value",
+                "content": "{{ kobo_url }}"
+              }
+            },
+            {
+              "property": {
+                "id": "P437",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q139660346"
+              }
+            },
+            {
+              "property": {
+                "id": "P437",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q139660326"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P750",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q139545632"
+          }
+        },
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P2699",
+                "data_type": "url"
+              },
+              "value": {
+                "type": "value",
+                "content": "https://www.humblebundle.com/books/kodansha-awardwinning-nominated-manga-books-encore"
+              }
+            },
+            {
+              "property": {
+                "id": "P437",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q139660346"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P750",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q139660940"
+          }
+        },
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P2699",
+                "data_type": "url"
+              },
+              "value": {
+                "type": "value",
+                "content": "https://www.fanatical.com/en/bundle/heroes-and-legends-featuring-vinland-saga-manga-bundle"
+              }
+            },
+            {
+              "property": {
+                "id": "P437",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q139660346"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P750",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q48818046"
+          }
+        },
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P2699",
+                "data_type": "url"
+              },
+              "value": {
+                "type": "value",
+                "content": "https://www.overdrive.com/search?q={{ overdrive_uuid }}"
+              }
+            },
+            {
+              "property": {
+                "id": "P437",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q139660326"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P750",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q139545673"
+          }
+        },
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P2699",
+                "data_type": "url"
+              },
+              "value": {
+                "type": "value",
+                "content": "https://kodansha.us/series/vinland-saga/volume-{{ index }}/"
+              }
+            },
+            {
+              "property": {
+                "id": "P437",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q139660326"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P750",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q139660118"
+          }
+        }
+      ],
+      "P1032": [
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P750",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q267427"
+              }
+            },
+            {
+              "property": {
+                "id": "P750",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q48818046"
+              }
+            }
+          ],
+          "references": [
+            {
+              "parts": [
+                {
+                  "property": {
+                    "id": "P854",
+                    "data_type": "url"
+                  },
+                  "value": {
+                    "type": "value",
+                    "content": "https://www.humblebundle.com/books/kodansha-awardwinning-nominated-manga-books-encore"
+                  }
+                },
+                {
+                  "property": {
+                    "id": "P854",
+                    "data_type": "url"
+                  },
+                  "value": {
+                    "type": "value",
+                    "content": "https://www.fanatical.com/en/bundle/heroes-and-legends-featuring-vinland-saga-manga-bundle"
+                  }
+                }
+              ]
+            }
+          ],
+          "property": {
+            "id": "P1032",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q139540118"
+          }
+        },
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P750",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q139545632"
+              }
+            }
+          ],
+          "references": [
+            {
+              "parts": [
+                {
+                  "property": {
+                    "id": "P854",
+                    "data_type": "url"
+                  },
+                  "value": {
+                    "type": "value",
+                    "content": "{{ kobo_url }}"
+                  }
+                }
+              ]
+            }
+          ],
+          "property": {
+            "id": "P1032",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q139545548"
+          }
+        }
+      ],
+      "P655": [
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P1932",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "Stephen Paul"
+              }
+            },
+            {
+              "property": {
+                "id": "P13187",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "translation"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P655",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q134723212"
+          }
+        }
+      ],
+      "P9191": [
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P1932",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "Scott O. Brown"
+              }
+            },
+            {
+              "property": {
+                "id": "P13187",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "lettering"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P9191",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q7436973"
+          }
+        }
+      ],
+      "P98": [
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P1932",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "Ben Applegate"
+              }
+            },
+            {
+              "property": {
+                "id": "P3831",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q11565578"
+              }
+            },
+            {
+              "property": {
+                "id": "P13187",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "editing"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P98",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q134723592"
+          }
+        }
+      ],
+      "P629": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P629",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "{{ wikidata_work_id }}"
+          }
+        }
+      ],
+      "P5749": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P5749",
+            "data_type": "external-id"
+          },
+          "value": {
+            "type": "value",
+            "content": "{{ asin }}"
+          }
+        }
+      ],
+      "P12351": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P12351",
+            "data_type": "external-id"
+          },
+          "value": {
+            "type": "value",
+            "content": "{{ bookbrainz_edition_id }}"
+          }
+        }
+      ],
+      "P2969": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P2969",
+            "data_type": "external-id"
+          },
+          "value": {
+            "type": "value",
+            "content": "{{ goodreads_version_id }}"
+          }
+        }
+      ],
+      "P243": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P243",
+            "data_type": "external-id"
+          },
+          "value": {
+            "type": "value",
+            "content": "{{ oclc_number }}"
+          }
+        }
+      ],
+      "P675": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P675",
+            "data_type": "external-id"
+          },
+          "value": {
+            "type": "value",
+            "content": "{{ google_books_id }}"
+          }
+        }
+      ],
+      "P648": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P648",
+            "data_type": "external-id"
+          },
+          "value": {
+            "type": "value",
+            "content": "{{ open_library_id }}"
+          }
+        }
+      ],
+      "P5905": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P5905",
+            "data_type": "external-id"
+          },
+          "value": {
+            "type": "value",
+            "content": "{{ comic_vine_id }}"
+          }
+        }
+      ],
+      "P10225": [
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P407",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q1860"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P10225",
+            "data_type": "url"
+          },
+          "value": {
+            "type": "value",
+            "content": "https://kodansha.us/series/vinland-saga/volume-{{ index }}/"
+          }
+        }
+      ],
+      "P4092": [
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P459",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q110651449"
+              }
+            },
+            {
+              "property": {
+                "id": "P2701",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q27196933"
+              }
+            },
+            {
+              "property": {
+                "id": "P3575",
+                "data_type": "quantity"
+              },
+              "value": {
+                "type": "value",
+                "content": {
+                  "amount": "+{{ drm_free_epub_data_size }}",
+                  "unit": "http://www.wikidata.org/entity/Q79758"
+                }
+              }
+            },
+            {
+              "property": {
+                "id": "P750",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q48818046"
+              }
+            },
+            {
+              "property": {
+                "id": "P750",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q267427"
+              }
+            },
+            {
+              "property": {
+                "id": "P393",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "1.0.0"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P4092",
+            "data_type": "string"
+          },
+          "value": {
+            "type": "value",
+            "content": "{{ drm_free_epub_sha3_512 }}"
+          }
+        },
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P459",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q110651449"
+              }
+            },
+            {
+              "property": {
+                "id": "P2701",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q42332"
+              }
+            },
+            {
+              "property": {
+                "id": "P3575",
+                "data_type": "quantity"
+              },
+              "value": {
+                "type": "value",
+                "content": {
+                  "amount": "+{{ pdf_data_size }}",
+                  "unit": "http://www.wikidata.org/entity/Q79758"
+                }
+              }
+            },
+            {
+              "property": {
+                "id": "P750",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q48818046"
+              }
+            },
+            {
+              "property": {
+                "id": "P750",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q267427"
+              }
+            },
+            {
+              "property": {
+                "id": "P393",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "1.0.0"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P4092",
+            "data_type": "string"
+          },
+          "value": {
+            "type": "value",
+            "content": "{{ pdf_sha3_512 }}"
+          }
+        },
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P459",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q111191355"
+              }
+            },
+            {
+              "property": {
+                "id": "P3575",
+                "data_type": "quantity"
+              },
+              "value": {
+                "type": "value",
+                "content": {
+                  "amount": "+{{ drm_free_epub_data_size }}",
+                  "unit": "http://www.wikidata.org/entity/Q79758"
+                }
+              }
+            },
+            {
+              "property": {
+                "id": "P2701",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q27196933"
+              }
+            },
+            {
+              "property": {
+                "id": "P750",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q48818046"
+              }
+            },
+            {
+              "property": {
+                "id": "P750",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q267427"
+              }
+            },
+            {
+              "property": {
+                "id": "P393",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "1.0.0"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P4092",
+            "data_type": "string"
+          },
+          "value": {
+            "type": "value",
+            "content": "{{ drm_free_epub_blake3 }}"
+          }
+        },
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P459",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q81575705"
+              }
+            },
+            {
+              "property": {
+                "id": "P3575",
+                "data_type": "quantity"
+              },
+              "value": {
+                "type": "value",
+                "content": {
+                  "amount": "+{{ pdf_data_size }}",
+                  "unit": "http://www.wikidata.org/entity/Q79758"
+                }
+              }
+            },
+            {
+              "property": {
+                "id": "P2701",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q42332"
+              }
+            },
+            {
+              "property": {
+                "id": "P750",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q48818046"
+              }
+            },
+            {
+              "property": {
+                "id": "P750",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q267427"
+              }
+            },
+            {
+              "property": {
+                "id": "P393",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "1.0.0"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P4092",
+            "data_type": "string"
+          },
+          "value": {
+            "type": "value",
+            "content": "{{ pdf_blake3 }}"
+          }
+        }
+      ],
+      "P3575": [
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P2701",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q27196933"
+              }
+            },
+            {
+              "property": {
+                "id": "P750",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q48818046"
+              }
+            },
+            {
+              "property": {
+                "id": "P750",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q267427"
+              }
+            },
+            {
+              "property": {
+                "id": "P393",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "1.0.0"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P3575",
+            "data_type": "quantity"
+          },
+          "value": {
+            "type": "value",
+            "content": {
+              "amount": "+{{ drm_free_epub_data_size }}",
+              "unit": "http://www.wikidata.org/entity/Q79758"
+            }
+          }
+        },
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P2701",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q42332"
+              }
+            },
+            {
+              "property": {
+                "id": "P750",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q48818046"
+              }
+            },
+            {
+              "property": {
+                "id": "P750",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q267427"
+              }
+            },
+            {
+              "property": {
+                "id": "P393",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "1.0.0"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P3575",
+            "data_type": "quantity"
+          },
+          "value": {
+            "type": "value",
+            "content": {
+              "amount": "+{{ pdf_data_size }}",
+              "unit": "http://www.wikidata.org/entity/Q79758"
+            }
+          }
+        },
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P2701",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q27196933"
+              }
+            },
+            {
+              "property": {
+                "id": "P750",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q139545632"
+              }
+            },
+            {
+              "property": {
+                "id": "P393",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "1.0.0"
+              }
+            }
+          ],
+          "references": [
+            {
+              "parts": [
+                {
+                  "property": {
+                    "id": "P854",
+                    "data_type": "url"
+                  },
+                  "value": {
+                    "type": "value",
+                    "content": "{{ kobo_url }}"
+                  }
+                }
+              ]
+            }
+          ],
+          "property": {
+            "id": "P3575",
+            "data_type": "quantity"
+          },
+          "value": {
+            "type": "value",
+            "content": {
+              "amount": "+{{ kobo_data_size }}",
+              "unit": "http://www.wikidata.org/entity/Q79758"
+            }
+          }
+        }
+      ],
+      "P736": [
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P1932",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "Makoto Yukimura"
+              }
+            },
+            {
+              "property": {
+                "id": "P3831",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q644687"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P736",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q1269354"
+          }
+        },
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P1932",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "Phil Balsman"
+              }
+            },
+            {
+              "property": {
+                "id": "P3831",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q5322166"
+              }
+            },
+            {
+              "property": {
+                "id": "P13187",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "Kodansha Comics edition cover & endpaper design"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P736",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q134726856"
+          }
+        }
+      ],
+      "P393": [
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P577",
+                "data_type": "time"
+              },
+              "value": {
+                "type": "value",
+                "content": {
+                  "time": "+{{ publication_date }}T00:00:00Z",
+                  "precision": 11,
+                  "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+                }
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P393",
+            "data_type": "string"
+          },
+          "value": {
+            "type": "value",
+            "content": "1.0.0"
+          }
+        }
+      ]
+    }
+  },
+  "comment": ""
+}

@@ -1,12 +1,7 @@
 #!/usr/bin/env nu
 
 use std log
-
-export const wikidata_auto_series_version = "0.0.1"
-
-export const user_agent = $"wikidata-auto-series/($wikidata_auto_series_version) \(https://github.com/jwillikers/wikidata-auto-series; jordan@jwillikers.com\)"
-
-export const wikidata_base_url = "https://www.wikidata.org/w/rest.php/wikibase/v1"
+use wikidata-auto-series-lib *
 
 # todo Handle multiple values?
 # P1274: "isfdb_title_id_1"
@@ -28,6 +23,8 @@ export const common_template_variables = {
   P5749: "asin"
   P5680: "hoopla_title_id"
   P1234: "isfdb_publication_id"
+  P243: "oclc_number"
+  P478: "index" # volume property
 }
 
 # Fetch a Wikidata item from the Wikidata API and create a JSON file submission template from it.

@@ -1,15 +1,18 @@
 {
   "item": {
     "labels": {
-      "en": "Land of the Lustrous {{ index }}"
+      "en": "Frieren: Beyond Journey's End, Vol. {{ index }}"
     },
     "descriptions": {
-      "en": "{{ publication_year }} ebook edition, en, Kodansha Comics"
+      "en": "{{ publication_year }} ebook edition, en, Shonen Sunday"
     },
     "aliases": {
       "en": [
-        "Land of the Lustrous, Volume {{ index }}",
-        "Land of the Lustrous, Vol. {{ index }}"
+        "Frieren: Beyond Journey's End, Volume {{ index }}",
+        "Frieren: Beyond Journey's End {{ index }}",
+        "Frieren, Vol. {{ index }}",
+        "Frieren {{ index }}",
+        "Frieren, Volume {{ index }}"
       ]
     },
     "statements": {
@@ -28,7 +31,98 @@
           }
         }
       ],
+      "P407": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P407",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q1860"
+          }
+        }
+      ],
       "P437": [
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P2701",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q27196933"
+              }
+            },
+            {
+              "property": {
+                "id": "P750",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q139545632"
+              }
+            },
+            {
+              "property": {
+                "id": "P3575",
+                "data_type": "quantity"
+              },
+              "value": {
+                "type": "value",
+                "content": {
+                  "amount": "+{{ kobo_data_size }}",
+                  "unit": "http://www.wikidata.org/entity/Q79758"
+                }
+              }
+            },
+            {
+              "property": {
+                "id": "P1114",
+                "data_type": "quantity"
+              },
+              "value": {
+                "type": "value",
+                "content": {
+                  "amount": "+1",
+                  "unit": "1"
+                }
+              }
+            }
+          ],
+          "references": [
+            {
+              "hash": "e1903ad4de849456561d0f6cd7efab180f25c56d",
+              "parts": [
+                {
+                  "property": {
+                    "id": "P854",
+                    "data_type": "url"
+                  },
+                  "value": {
+                    "type": "value",
+                    "content": "https://www.kobo.com/us/en/ebook/frieren-beyond-journey-s-end-vol-{{ index }}"
+                  }
+                }
+              ]
+            }
+          ],
+          "property": {
+            "id": "P437",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q128093"
+          }
+        },
         {
           "rank": "normal",
           "qualifiers": [],
@@ -43,6 +137,48 @@
           }
         }
       ],
+      "P1032": [
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P750",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q139545632"
+              }
+            }
+          ],
+          "references": [
+            {
+              "hash": "e1903ad4de849456561d0f6cd7efab180f25c56d",
+              "parts": [
+                {
+                  "property": {
+                    "id": "P854",
+                    "data_type": "url"
+                  },
+                  "value": {
+                    "type": "value",
+                    "content": "https://www.kobo.com/us/en/ebook/frieren-beyond-journey-s-end-vol-{{ index }}"
+                  }
+                }
+              ]
+            }
+          ],
+          "property": {
+            "id": "P1032",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q139545548"
+          }
+        }
+      ],
       "P750": [
         {
           "rank": "normal",
@@ -54,7 +190,7 @@
           },
           "value": {
             "type": "value",
-            "content": "Q389251"
+            "content": "Q139545632"
           }
         },
         {
@@ -67,7 +203,7 @@
           },
           "value": {
             "type": "value",
-            "content": "Q3884"
+            "content": "Q139545673"
           }
         }
       ],
@@ -90,21 +226,6 @@
           }
         }
       ],
-      "P407": [
-        {
-          "rank": "normal",
-          "qualifiers": [],
-          "references": [],
-          "property": {
-            "id": "P407",
-            "data_type": "wikibase-item"
-          },
-          "value": {
-            "type": "value",
-            "content": "Q1860"
-          }
-        }
-      ],
       "P1476": [
         {
           "rank": "normal",
@@ -117,262 +238,9 @@
           "value": {
             "type": "value",
             "content": {
-              "text": "Land of the Lustrous {{ index }}",
+              "text": "Frieren: Beyond Journey's End, Vol. {{ index }}",
               "language": "en"
             }
-          }
-        }
-      ],
-      "P291": [
-        {
-          "rank": "normal",
-          "qualifiers": [],
-          "references": [],
-          "property": {
-            "id": "P291",
-            "data_type": "wikibase-item"
-          },
-          "value": {
-            "type": "value",
-            "content": "Q60"
-          }
-        }
-      ],
-      "P50": [
-        {
-          "rank": "normal",
-          "qualifiers": [
-            {
-              "property": {
-                "id": "P1932",
-                "data_type": "string"
-              },
-              "value": {
-                "type": "value",
-                "content": "Haruko Ichikawa"
-              }
-            }
-          ],
-          "references": [],
-          "property": {
-            "id": "P50",
-            "data_type": "wikibase-item"
-          },
-          "value": {
-            "type": "value",
-            "content": "Q11480318"
-          }
-        }
-      ],
-      "P110": [
-        {
-          "rank": "normal",
-          "qualifiers": [
-            {
-              "property": {
-                "id": "P1932",
-                "data_type": "string"
-              },
-              "value": {
-                "type": "value",
-                "content": "Haruko Ichikawa"
-              }
-            }
-          ],
-          "references": [],
-          "property": {
-            "id": "P110",
-            "data_type": "wikibase-item"
-          },
-          "value": {
-            "type": "value",
-            "content": "Q11480318"
-          }
-        }
-      ],
-      "P736": [
-        {
-          "rank": "normal",
-          "qualifiers": [
-            {
-              "property": {
-                "id": "P1932",
-                "data_type": "string"
-              },
-              "value": {
-                "type": "value",
-                "content": "Haruko Ichikawa"
-              }
-            },
-            {
-              "property": {
-                "id": "P3831",
-                "data_type": "wikibase-item"
-              },
-              "value": {
-                "type": "value",
-                "content": "Q644687"
-              }
-            }
-          ],
-          "references": [],
-          "property": {
-            "id": "P736",
-            "data_type": "wikibase-item"
-          },
-          "value": {
-            "type": "value",
-            "content": "Q11480318"
-          }
-        },
-        {
-          "rank": "normal",
-          "qualifiers": [
-            {
-              "property": {
-                "id": "P1932",
-                "data_type": "string"
-              },
-              "value": {
-                "type": "value",
-                "content": "Phil Balsman"
-              }
-            },
-            {
-              "property": {
-                "id": "P3831",
-                "data_type": "wikibase-item"
-              },
-              "value": {
-                "type": "value",
-                "content": "Q5322166"
-              }
-            },
-            {
-              "property": {
-                "id": "P13187",
-                "data_type": "string"
-              },
-              "value": {
-                "type": "value",
-                "content": "Kodansha Comics edition cover design"
-              }
-            }
-          ],
-          "references": [],
-          "property": {
-            "id": "P736",
-            "data_type": "wikibase-item"
-          },
-          "value": {
-            "type": "value",
-            "content": "Q134726856"
-          }
-        }
-      ],
-      "P655": [
-        {
-          "rank": "normal",
-          "qualifiers": [
-            {
-              "property": {
-                "id": "P1932",
-                "data_type": "string"
-              },
-              "value": {
-                "type": "value",
-                "content": "Alethea Nibley"
-              }
-            },
-            {
-              "property": {
-                "id": "P13187",
-                "data_type": "string"
-              },
-              "value": {
-                "type": "value",
-                "content": "translator"
-              }
-            }
-          ],
-          "references": [],
-          "property": {
-            "id": "P655",
-            "data_type": "wikibase-item"
-          },
-          "value": {
-            "type": "value",
-            "content": "Q48816872"
-          }
-        },
-        {
-          "rank": "normal",
-          "qualifiers": [
-            {
-              "property": {
-                "id": "P1932",
-                "data_type": "string"
-              },
-              "value": {
-                "type": "value",
-                "content": "Athena Nibley"
-              }
-            },
-            {
-              "property": {
-                "id": "P13187",
-                "data_type": "string"
-              },
-              "value": {
-                "type": "value",
-                "content": "Athena Nibley"
-              }
-            }
-          ],
-          "references": [],
-          "property": {
-            "id": "P655",
-            "data_type": "wikibase-item"
-          },
-          "value": {
-            "type": "value",
-            "content": "Q135094777"
-          }
-        }
-      ],
-      "P98": [
-        {
-          "rank": "normal",
-          "qualifiers": [
-            {
-              "property": {
-                "id": "P1932",
-                "data_type": "string"
-              },
-              "value": {
-                "type": "value",
-                "content": "Lauren Scanlan"
-              }
-            },
-            {
-              "property": {
-                "id": "P13187",
-                "data_type": "string"
-              },
-              "value": {
-                "type": "value",
-                "content": "editing"
-              }
-            }
-          ],
-          "references": [],
-          "property": {
-            "id": "P98",
-            "data_type": "wikibase-item"
-          },
-          "value": {
-            "type": "value",
-            "content": "Q134738622"
           }
         }
       ],
@@ -387,7 +255,201 @@
           },
           "value": {
             "type": "value",
-            "content": "Q134715686"
+            "content": "Q139571225"
+          }
+        },
+        {
+          "rank": "preferred",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P7452",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q71536040"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P123",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q135034038"
+          }
+        }
+      ],
+      "P10225": [
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P407",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q1860"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P10225",
+            "data_type": "url"
+          },
+          "value": {
+            "type": "value",
+            "content": "https://www.viz.com/manga-books/manga/wd/product/{{ viz_media_id }}/digital"
+          }
+        }
+      ],
+      "P50": [
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P1932",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "Kanehito Yamada"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P50",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q38277627"
+          }
+        }
+      ],
+      "P110": [
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P1932",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "Tsukasa Abe"
+              }
+            },
+            {
+              "property": {
+                "id": "P13187",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "art by"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P110",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q105258125"
+          }
+        }
+      ],
+      "P736": [
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P1932",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "Tsukasa Abe"
+              }
+            },
+            {
+              "property": {
+                "id": "P3831",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q644687"
+              }
+            },
+            {
+              "property": {
+                "id": "P13187",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "art by"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P736",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q105258125"
+          }
+        }
+      ],
+      "P655": [
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P1932",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "Misa 'Japanese Ammo'"
+              }
+            },
+            {
+              "property": {
+                "id": "P13187",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "translation"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P655",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q135035429"
           }
         }
       ],
@@ -402,7 +464,7 @@
               },
               "value": {
                 "type": "value",
-                "content": "Evan Hayden"
+                "content": "Annaliese 'Ace' Christman"
               }
             },
             {
@@ -412,7 +474,7 @@
               },
               "value": {
                 "type": "value",
-                "content": "lettering"
+                "content": "touch-up art & lettering"
               }
             }
           ],
@@ -423,7 +485,114 @@
           },
           "value": {
             "type": "value",
-            "content": "Q134551500"
+            "content": "Q135035794"
+          }
+        }
+      ],
+      "P287": [
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P1932",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "Yukiko Whitley"
+              }
+            },
+            {
+              "property": {
+                "id": "P3831",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q28933278"
+              }
+            },
+            {
+              "property": {
+                "id": "P13187",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "design"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P287",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q135036131"
+          }
+        }
+      ],
+      "P98": [
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P1932",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "Mike Montesa"
+              }
+            },
+            {
+              "property": {
+                "id": "P3831",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q11565578"
+              }
+            },
+            {
+              "property": {
+                "id": "P13187",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "editor"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P98",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q134738541"
+          }
+        }
+      ],
+      "P291": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P291",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q62"
           }
         }
       ],
@@ -442,6 +611,21 @@
           }
         }
       ],
+      "P957": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P957",
+            "data_type": "external-id"
+          },
+          "value": {
+            "type": "value",
+            "content": "{{ isbn_10 }}"
+          }
+        }
+      ],
       "P12351": [
         {
           "rank": "normal",
@@ -457,18 +641,18 @@
           }
         }
       ],
-      "P629": [
+      "P5905": [
         {
           "rank": "normal",
           "qualifiers": [],
           "references": [],
           "property": {
-            "id": "P629",
-            "data_type": "wikibase-item"
+            "id": "P5905",
+            "data_type": "external-id"
           },
           "value": {
             "type": "value",
-            "content": "{{ wikidata_work_id }}"
+            "content": "{{ comic_vine_id }}"
           }
         }
       ],
@@ -484,6 +668,21 @@
           "value": {
             "type": "value",
             "content": "{{ asin }}"
+          }
+        }
+      ],
+      "P2969": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P2969",
+            "data_type": "external-id"
+          },
+          "value": {
+            "type": "value",
+            "content": "{{ goodreads_version_id }}"
           }
         }
       ],
@@ -532,22 +731,52 @@
           }
         }
       ],
-      "P5905": [
+      "P629": [
         {
           "rank": "normal",
           "qualifiers": [],
           "references": [],
           "property": {
-            "id": "P5905",
-            "data_type": "external-id"
+            "id": "P629",
+            "data_type": "wikibase-item"
           },
           "value": {
             "type": "value",
-            "content": "{{ comic_vine_id }}"
+            "content": "{{ wikidata_work_id }}"
+          }
+        }
+      ],
+      "P6216": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P6216",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q50423863"
+          }
+        }
+      ],
+      "P275": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P275",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q3238057"
           }
         }
       ]
     }
   },
-  "comment": "Adding English eBook edition of Land of the Lustrous {{ index }} to Wikidata"
+  "comment": ""
 }

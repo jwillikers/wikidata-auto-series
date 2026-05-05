@@ -185,7 +185,7 @@
           },
           "value": {
             "type": "value",
-            "content": "{{ open_library_work_id }}"
+            "content": "{{ open_library_id }}"
           }
         }
       ],

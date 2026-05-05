@@ -13,9 +13,11 @@ def main [
   distributors: string # A string of space-separated Wikidata item IDs for each distributor.
   ...files: path
   --epub-version: int = 3 # The EPUB version to use for EPUB files, either 2 or 3.
-  --edition-number: string # Relevant edition number if applicable
+  --edition-number: string = "" # Relevant edition number, if applicable
 ] {
   # todo Verify that wikidata_edition_id is a version, edition, or translation, to ensure it doesn't get swapped with the distributors.
+  # todo Verify that distributors are of the correct type
+  # todo Check before submitting that an existing statement doesn't already exist for data size and checksums
 
   if "WIKIDATA_USERNAME" not-in $env {
     log error "Set environment WIKIDATA_USERNAME to your Wikidata username"

@@ -1,0 +1,122 @@
+{
+  "range": [
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14"
+  ],
+  "items": [
+    {
+      "index": "2",
+      "publication_date": "2014-01-21",
+      "open_library_id": "OL20002242W",
+      "librarything_work_id": "13918860",
+      "penguin_random_house_work_id": "643765",
+      "goodreads_work_id": "24998913"
+    },
+    {
+      "index": "3",
+      "publication_date": "2014-04-29",
+      "open_library_id": "OL20002243W",
+      "librarything_work_id": "14315344",
+      "penguin_random_house_work_id": "643766",
+      "goodreads_work_id": "41335041"
+    },
+    {
+      "index": "4",
+      "publication_date": "2014-07-29",
+      "open_library_id": "OL20002244W",
+      "librarything_work_id": "15211253",
+      "penguin_random_house_work_id": "232268",
+      "goodreads_work_id": "42300101"
+    },
+    {
+      "index": "5",
+      "publication_date": "2014-10-07",
+      "open_library_id": "OL20002245W",
+      "librarything_work_id": "15396332",
+      "penguin_random_house_work_id": "238288",
+      "goodreads_work_id": "42507486"
+    },
+    {
+      "index": "6",
+      "publication_date": "2015-09-29",
+      "open_library_id": "OL20007291W",
+      "librarything_work_id": "16475410",
+      "penguin_random_house_work_id": "238287",
+      "goodreads_work_id": "41281621"
+    },
+    {
+      "index": "7",
+      "publication_date": "2015-12-29",
+      "open_library_id": "OL20048949W",
+      "librarything_work_id": "16921404",
+      "penguin_random_house_work_id": "246414",
+      "goodreads_work_id": "45469009"
+    },
+    {
+      "index": "8",
+      "publication_date": "2016-12-27",
+      "open_library_id": "OL20041833W",
+      "librarything_work_id": "18879344",
+      "penguin_random_house_work_id": "547061",
+      "goodreads_work_id": "50431971"
+    },
+    {
+      "index": "9",
+      "publication_date": "2017-06-27",
+      "open_library_id": "OL19711472W",
+      "librarything_work_id": "19771345",
+      "penguin_random_house_work_id": "552576",
+      "goodreads_work_id": "50484586"
+    },
+    {
+      "index": "10",
+      "publication_date": "2018-06-05",
+      "open_library_id": "OL19742891W",
+      "librarything_work_id": "20691044",
+      "penguin_random_house_work_id": "568148",
+      "goodreads_work_id": "60217614"
+    },
+    {
+      "index": "11",
+      "publication_date": "2019-12-03",
+      "open_library_id": "OL21214727W",
+      "librarything_work_id": "24767101",
+      "penguin_random_house_work_id": "605059",
+      "goodreads_work_id": "69421662"
+    },
+    {
+      "index": "12",
+      "publication_date": "2021-12-14",
+      "open_library_id": "OL25247349W",
+      "librarything_work_id": "24737045",
+      "penguin_random_house_work_id": "645727",
+      "goodreads_work_id": "80493583"
+    },
+    {
+      "index": "13",
+      "publication_date": "2022-02-24",
+      "open_library_id": "OL25317353W",
+      "librarything_work_id": "29879374",
+      "penguin_random_house_work_id": "676282",
+      "goodreads_work_id": "92230620"
+    },
+    {
+      "index": "14",
+      "publication_date": "2024-02-25",
+      "open_library_id": "OL42434553W",
+      "librarything_work_id": "34273522",
+      "penguin_random_house_work_id": "734310",
+      "goodreads_work_id": "226578372"
+    }
+  ]
+}

@@ -1,0 +1,857 @@
+{
+  "item": {
+    "labels": {
+      "en": "Kaiju No. 8, Vol. {{ index }}"
+    },
+    "descriptions": {
+      "en": "{{ publication_year }} ebook edition, en, Shonen Jump"
+    },
+    "aliases": {
+      "en": [
+        "Kaiju No. 8 {{ index }}",
+        "Kaiju No. 8, Volume {{ index }}"
+      ]
+    },
+    "statements": {
+      "P31": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P31",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q3331189"
+          }
+        }
+      ],
+      "P407": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P407",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q1860"
+          }
+        }
+      ],
+      "P577": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P577",
+            "data_type": "time"
+          },
+          "value": {
+            "type": "value",
+            "content": {
+              "time": "+{{ publication_date }}T00:00:00Z",
+              "precision": 11,
+              "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+            }
+          }
+        }
+      ],
+      "P1476": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P1476",
+            "data_type": "monolingualtext"
+          },
+          "value": {
+            "type": "value",
+            "content": {
+              "text": "Kaiju No. 8, Vol. {{ index }}",
+              "language": "en"
+            }
+          }
+        }
+      ],
+      "P50": [
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P1932",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "Naoya Matsumoto"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P50",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q11531207"
+          }
+        }
+      ],
+      "P110": [
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P1932",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "Naoya Matsumoto"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P110",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q11531207"
+          }
+        }
+      ],
+      "P736": [
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P1932",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "Naoya Matsumoto"
+              }
+            },
+            {
+              "property": {
+                "id": "P3831",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q644687"
+              }
+            },
+            {
+              "property": {
+                "id": "P13187",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "story and art by"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P736",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q11531207"
+          }
+        }
+      ],
+      "P123": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P123",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q133698002"
+          }
+        }
+      ],
+      "P291": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P291",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q62"
+          }
+        }
+      ],
+      "P212": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P212",
+            "data_type": "external-id"
+          },
+          "value": {
+            "type": "value",
+            "content": "{{ isbn_13 }}"
+          }
+        }
+      ],
+      "P957": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P957",
+            "data_type": "external-id"
+          },
+          "value": {
+            "type": "value",
+            "content": "{{ isbn_10 }}"
+          }
+        }
+      ],
+      "P2969": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P2969",
+            "data_type": "external-id"
+          },
+          "value": {
+            "type": "value",
+            "content": "{{ goodreads_version_id }}"
+          }
+        }
+      ],
+      "P5749": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P5749",
+            "data_type": "external-id"
+          },
+          "value": {
+            "type": "value",
+            "content": "{{ asin }}"
+          }
+        }
+      ],
+      "P12351": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P12351",
+            "data_type": "external-id"
+          },
+          "value": {
+            "type": "value",
+            "content": "{{ bookbrainz_edition_id }}"
+          }
+        }
+      ],
+      "P648": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P648",
+            "data_type": "external-id"
+          },
+          "value": {
+            "type": "value",
+            "content": "{{ open_library_id }}"
+          }
+        }
+      ],
+      "P437": [
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P2701",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q27196933"
+              }
+            },
+            {
+              "property": {
+                "id": "P750",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q139545632"
+              }
+            },
+            {
+              "property": {
+                "id": "P1114",
+                "data_type": "quantity"
+              },
+              "value": {
+                "type": "value",
+                "content": {
+                  "amount": "+1",
+                  "unit": "1"
+                }
+              }
+            }
+          ],
+          "references": [
+            {
+              "parts": [
+                {
+                  "property": {
+                    "id": "P854",
+                    "data_type": "url"
+                  },
+                  "value": {
+                    "type": "value",
+                    "content": "https://www.kobo.com/us/en/ebook/kaiju-no-8-vol-{{ index }}"
+                  }
+                }
+              ]
+            }
+          ],
+          "property": {
+            "id": "P437",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q128093"
+          }
+        },
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P437",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q128093"
+          }
+        }
+      ],
+      "P629": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P629",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "{{ wikidata_work_id }}"
+          }
+        }
+      ],
+      "P675": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P675",
+            "data_type": "external-id"
+          },
+          "value": {
+            "type": "value",
+            "content": "{{ google_books_id }}"
+          }
+        }
+      ],
+      "P750": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P750",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q139545632"
+          }
+        },
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P750",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q139545673"
+          }
+        }
+      ],
+      "P655": [
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P1932",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "David Evelyn"
+              }
+            },
+            {
+              "property": {
+                "id": "P13187",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "translation"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P655",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q134704790"
+          }
+        }
+      ],
+      "P9191": [
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P1932",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "Brandon Bovia"
+              }
+            },
+            {
+              "property": {
+                "id": "P13187",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "Shonen Jump series lettering"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P9191",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q134704842"
+          }
+        },
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P1932",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "Phil Christie"
+              }
+            },
+            {
+              "property": {
+                "id": "P13187",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "touch-up art & lettering"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P9191",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q134713770"
+          }
+        }
+      ],
+      "P287": [
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P1932",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "Jimmy Presler"
+              }
+            },
+            {
+              "property": {
+                "id": "P3831",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q28933278"
+              }
+            },
+            {
+              "property": {
+                "id": "P13187",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "design"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P287",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q134704939"
+          }
+        }
+      ],
+      "P98": [
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P1932",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "Karla Clark"
+              }
+            },
+            {
+              "property": {
+                "id": "P13187",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "editor"
+              }
+            },
+            {
+              "property": {
+                "id": "P3831",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q11565578"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P98",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q134704905"
+          }
+        }
+      ],
+      "P767": [
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P1932",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "Osamu Koiwai"
+              }
+            },
+            {
+              "property": {
+                "id": "P3831",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q4839644"
+              }
+            },
+            {
+              "property": {
+                "id": "P3831",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q139597822"
+              }
+            },
+            {
+              "property": {
+                "id": "P13187",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "background art"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P767",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q138706278"
+          }
+        },
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P1932",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "Jiro Sakura"
+              }
+            },
+            {
+              "property": {
+                "id": "P13187",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "finishing work"
+              }
+            },
+            {
+              "property": {
+                "id": "P3831",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q136064522"
+              }
+            },
+            {
+              "property": {
+                "id": "P3831",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q139597822"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P767",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q138706302"
+          }
+        },
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P1932",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "Mantohihi Binta"
+              }
+            },
+            {
+              "property": {
+                "id": "P13187",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "weapon design"
+              }
+            },
+            {
+              "property": {
+                "id": "P3831",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q139597199"
+              }
+            },
+            {
+              "property": {
+                "id": "P3831",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q139597822"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P767",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q138706315"
+          }
+        }
+      ],
+      "P5905": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P5905",
+            "data_type": "external-id"
+          },
+          "value": {
+            "type": "value",
+            "content": "{{ comic_vine_id }}"
+          }
+        }
+      ],
+      "P1032": [
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P750",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q139545632"
+              }
+            }
+          ],
+          "references": [
+            {
+              "parts": [
+                {
+                  "property": {
+                    "id": "P854",
+                    "data_type": "url"
+                  },
+                  "value": {
+                    "type": "value",
+                    "content": "https://www.kobo.com/us/en/ebook/kaiju-no-8-vol-{{ index }}"
+                  }
+                }
+              ]
+            }
+          ],
+          "property": {
+            "id": "P1032",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q139545548"
+          }
+        }
+      ]
+    }
+  },
+  "comment": ""
+}

@@ -1,0 +1,117 @@
+{
+  "range": [
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15"
+  ],
+  "items": [
+    {
+      "index": "2",
+      "publication_date": "2020-10-16",
+      "open_library_id": "OL42575511W",
+      "librarything_work_id": "26917988",
+      "goodreads_work_id": "86829811"
+    },
+    {
+      "index": "3",
+      "publication_date": "2020-12-18",
+      "open_library_id": "OL42575518W",
+      "librarything_work_id": "26917989",
+      "goodreads_work_id": "87741771"
+    },
+    {
+      "index": "4",
+      "publication_date": "2021-03-17",
+      "open_library_id": "OL19849367W",
+      "librarything_work_id": "27317934",
+      "goodreads_work_id": "89425130"
+    },
+    {
+      "index": "5",
+      "publication_date": "2021-07-16",
+      "open_library_id": "OL20085387W",
+      "librarything_work_id": "27317935",
+      "goodreads_work_id": "90153369"
+    },
+    {
+      "index": "6",
+      "publication_date": "2021-11-18",
+      "open_library_id": "OL37889849W",
+      "librarything_work_id": "27975968",
+      "goodreads_work_id": "92043513"
+    },
+    {
+      "index": "7",
+      "publication_date": "2022-03-17",
+      "open_library_id": "OL1976795W",
+      "librarything_work_id": "28553306",
+      "goodreads_work_id": "93942857"
+    },
+    {
+      "index": "8",
+      "publication_date": "2022-07-17",
+      "open_library_id": "OL1976782W",
+      "librarything_work_id": "30169186",
+      "goodreads_work_id": "95595462"
+    },
+    {
+      "index": "9",
+      "publication_date": "2022-09-15",
+      "open_library_id": "OL25636233W",
+      "librarything_work_id": "30393760",
+      "goodreads_work_id": "96500530"
+    },
+    {
+      "index": "10",
+      "publication_date": "2023-03-16",
+      "open_library_id": "OL38018657W",
+      "librarything_work_id": "30946454",
+      "goodreads_work_id": "98555158"
+    },
+    {
+      "index": "11",
+      "publication_date": "2023-09-15",
+      "open_library_id": "OL19848871W",
+      "librarything_work_id": "31604866",
+      "goodreads_work_id": "146876021"
+    },
+    {
+      "index": "12",
+      "publication_date": "2023-12-18",
+      "open_library_id": "OL25797360W",
+      "librarything_work_id": "32109424",
+      "goodreads_work_id": "207810236"
+    },
+    {
+      "index": "13",
+      "publication_date": "2024-04-17",
+      "open_library_id": "OL44413820W",
+      "librarything_work_id": "33304957",
+      "goodreads_work_id": "216032429"
+    },
+    {
+      "index": "14",
+      "publication_date": "2025-03-18",
+      "open_library_id": "OL44413822W",
+      "librarything_work_id": "34751518",
+      "goodreads_work_id": "230314679"
+    },
+    {
+      "index": "15",
+      "publication_date": "2025-12-18",
+      "open_library_id": "OL20708523W",
+      "librarything_work_id": "35480281",
+      "goodreads_work_id": "269520243"
+    }
+  ]
+}

@@ -93,6 +93,18 @@ def main [
     )
   )
 
+  # Remove reference hashes
+  let template = (
+    $template
+    | update item.statements (
+      $template.item.statements | columns | reduce --fold {} {|statement_id, acc|
+        $acc | insert $statement_id (
+          $template.item.statements | get $statement_id | reject --optional references.hash
+        )
+      }
+    )
+  )
+
   # Inject publication date template.
   let template = (
     if "P577" in ($template.item.statements | columns) {

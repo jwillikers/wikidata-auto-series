@@ -73,6 +73,12 @@ def main [
     let item = $item | upsert publication_year (
       $item.publication_date | split row '-' | first
     )
+    let multiplier = 2
+    let item = $item | upsert series_index (
+      let begin = ($item.index | into int) * $multiplier - 1;
+      let end = ($item.index | into int) * $multiplier;
+      $"($begin)-($end)"
+    )
     let payload = (
       $template
       | to json

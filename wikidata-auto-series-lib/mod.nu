@@ -11,10 +11,12 @@ export const template_variables = [
   publication_date
   publication_year
   zero_padded_index
+  series_index
   subtitle_kanji
   subtitle_kana
   subtitle_hepburn
   subtitle_english
+  number_of_parts_of_this_work
   open_library_id
   # Work identifiers
   librarything_work_id

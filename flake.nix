@@ -35,6 +35,7 @@
     let
       overlays = import ./overlays { };
       overlaysList = with overlays; [
+        isbnlib2
         isbntools
         wikidata-auto-series
       ];

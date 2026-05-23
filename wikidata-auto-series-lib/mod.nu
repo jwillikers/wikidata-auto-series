@@ -8,10 +8,14 @@ export const wikidata_base_url = "https://www.wikidata.org/w/rest.php/wikibase/v
 
 # todo Verify each template variable is in the correct format
 export const template_variables = [
+  index_hepburn
+  index_kanji
+  index_kana
   publication_date
   publication_year
   zero_padded_index
   series_index
+  subtitle
   subtitle_kanji
   subtitle_kana
   subtitle_hepburn
@@ -19,6 +23,9 @@ export const template_variables = [
   number_of_parts_of_this_work
   open_library_id
   # Work identifiers
+  bookbrainz_work_id
+  bookbrainz_work_id_1
+  bookbrainz_work_id_2
   librarything_work_id
   goodreads_work_id
   fandom_wiki_article_id
@@ -26,12 +33,18 @@ export const template_variables = [
   isfdb_title_id
   isfdb_title_id_1
   isfdb_title_id_2
+  musicbrainz_work_id
+  musicbrainz_work_id_1
+  musicbrainz_work_id_2
   viz_media_id
   # Edition identifiers
   wikidata_work_id
   isbn_13
+  isbn_13_no_hyphens
   isbn_10
+  duration
   bookbrainz_edition_id
+  cover_art_archive_image_id
   oclc_number
   goodreads_version_id
   google_books_id
@@ -39,8 +52,9 @@ export const template_variables = [
   hoopla_title_id
   comic_vine_id
   isfdb_publication_id
-  musicbrainz_release_1
-  musicbrainz_release_2
+  musicbrainz_release_id_1
+  musicbrainz_release_id_2
+  musicbrainz_release_id_2_number_of_parts_of_this_work
   kobo_data_size
   pdf_data_size
   pdf_blake3
@@ -49,7 +63,9 @@ export const template_variables = [
   drm_free_epub_sha3_512
   drm_free_epub_data_size
   kobo_url
+  libro_fm_data_size_m4b
   overdrive_uuid
+  yen_press_url
 ]
 
 export def hyphenate_isbn []: [string -> string] {
@@ -265,12 +281,13 @@ export const bookbrainz_identifier_translation_table = {
   "ISBN-10": "isbn_10"
   "OCN/Worldcat ID": "oclc_number"
   "OpenLibrary Book ID": "open_library_id"
-  # "Wikidata Edition ID": "wikidata_item_id"
-  # "Wikidata Work ID": "wikidata_work_id"
+  "Wikidata Edition ID": "wikidata_item_id"
+  "Wikidata Work ID": "wikidata_work_id"
   "MusicBrainz Work ID": "musicbrainz_work_id"
   "OpenLibrary Work ID": "open_library_id"
   "LibraryThing Work ID": "librarything_work_id"
   "LCCN (Library of Congress Control Number)": "library_of_congress_item_id"
+  "Barcode": "upc"
 }
 
 # Fetch the identifiers for a BookBrainz edition
@@ -303,7 +320,7 @@ export def bookbrainz_get_edition_identifiers [
     log error $"HTTP error (ansi red)($response.status)(ansi reset) getting identifiers for BookBrainz edition ($bookbrainz_edition_id) from (ansi yellow)($bookbrainz_api_edition_identifiers_url)(ansi reset): ($response.body)"
     return null
   }
-  let identifiers = $response.body.identifiers
+  let identifiers = $response.body | get --optional identifiers
   if ($identifiers | is-empty) {
 
   } else {
@@ -461,8 +478,10 @@ export const open_library_edition_identifier_translation_table = {
   # "ISBN-10": "isbn_10"
   "bookbrainz": "bookbrainz_edition_id"
   "google": "google_books_id"
+  "musicbrainz": "musicbrainz_release_id"
   "overdrive": "overdrive_uuid"
-  # "wikidata": "wikidata_edition_id"
+  # "wikidata": "wikidata_work_id"
+  "wikidata": "wikidata_item_id"
 }
 
 # Fetch the identifiers for an Open Library edition

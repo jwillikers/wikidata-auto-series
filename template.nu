@@ -27,6 +27,7 @@ export const common_template_variables = {
   P1234: "isfdb_publication_id"
   P243: "oclc_number"
   P478: "index" # volume property
+  P14071: "cover_art_archive_image_id"
 }
 
 # Fetch a Wikidata item from the Wikidata API and create a JSON file submission template from it.

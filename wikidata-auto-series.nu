@@ -102,6 +102,8 @@ def main [
             } else {
               $item | get --optional $data_field
             }
+          } else if $data_field == "isbn_13_no_hyphens" and ($item | get --optional isbn_13 | is-not-empty) {
+            $item | get --optional isbn_13 | str replace --all "-" ""
           } else {
             $item | get --optional $data_field
           }

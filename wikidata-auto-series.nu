@@ -73,6 +73,12 @@ def main [
     let item = $item | upsert publication_year (
       $item.publication_date | split row '-' | first
     )
+    let multiplier = 2
+    let item = $item | upsert series_index (
+      let begin = ($item.index | into int) * $multiplier - 1;
+      let end = ($item.index | into int) * $multiplier;
+      $"($begin)-($end)"
+    )
     let payload = (
       $template
       | to json
@@ -96,6 +102,8 @@ def main [
             } else {
               $item | get --optional $data_field
             }
+          } else if $data_field == "isbn_13_no_hyphens" and ($item | get --optional isbn_13 | is-not-empty) {
+            $item | get --optional isbn_13 | str replace --all "-" ""
           } else {
             $item | get --optional $data_field
           }

@@ -1,0 +1,869 @@
+{
+  "item": {
+    "labels": {
+      "en": "One Piece, Vol. {{ index }}: {{ subtitle }}"
+    },
+    "descriptions": {
+      "en": "{{ publication_year }} ebook edition, en, Shonen Jump"
+    },
+    "aliases": {
+      "en": [
+        "One Piece, Volume {{ index }}: {{ subtitle }}",
+        "One Piece {{ index }}: {{ subtitle }}"
+      ]
+    },
+    "statements": {
+      "P31": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P31",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q3331189"
+          }
+        }
+      ],
+      "P407": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P407",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q1860"
+          }
+        }
+      ],
+      "P577": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P577",
+            "data_type": "time"
+          },
+          "value": {
+            "type": "value",
+            "content": {
+              "time": "+{{ publication_date }}T00:00:00Z",
+              "precision": 11,
+              "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+            }
+          }
+        }
+      ],
+      "P1476": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P1476",
+            "data_type": "monolingualtext"
+          },
+          "value": {
+            "type": "value",
+            "content": {
+              "text": "One Piece, Vol. {{ index }}",
+              "language": "en"
+            }
+          }
+        }
+      ],
+      "P1680": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P1680",
+            "data_type": "monolingualtext"
+          },
+          "value": {
+            "type": "value",
+            "content": {
+              "text": "{{ subtitle }}",
+              "language": "en"
+            }
+          }
+        }
+      ],
+      "P50": [
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P1932",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "Eiichiro Oda"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P50",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q2010"
+          }
+        }
+      ],
+      "P110": [
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P1932",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "Eiichiro Oda"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P110",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q2010"
+          }
+        }
+      ],
+      "P736": [
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P1932",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "Eiichiro Oda"
+              }
+            },
+            {
+              "property": {
+                "id": "P3831",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q644687"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P736",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q2010"
+          }
+        }
+      ],
+      "P291": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P291",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q62"
+          }
+        }
+      ],
+      "P123": [
+        {
+          "rank": "preferred",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P7452",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q71536040"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P123",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q133698002"
+          }
+        },
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P123",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q139571225"
+          }
+        }
+      ],
+      "P629": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P629",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "{{ wikidata_work_id }}"
+          }
+        }
+      ],
+      "P287": [
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P1932",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "Yukiko Whitley"
+              }
+            },
+            {
+              "property": {
+                "id": "P3831",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q28933278"
+              }
+            },
+            {
+              "property": {
+                "id": "P13187",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "design"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P287",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q135036131"
+          }
+        }
+      ],
+      "P98": [
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P1932",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "Alexis Kirsch"
+              }
+            },
+            {
+              "property": {
+                "id": "P13187",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "editor"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P98",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q135105382"
+          }
+        }
+      ],
+      "P655": [
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P1932",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "Stephen Paul"
+              }
+            },
+            {
+              "property": {
+                "id": "P13187",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "translation"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P655",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q134723212"
+          }
+        }
+      ],
+      "P9191": [
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P1932",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "Vanessa Satone"
+              }
+            },
+            {
+              "property": {
+                "id": "P13187",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "touch-up art & lettering"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P9191",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q61849115"
+          }
+        }
+      ],
+      "P212": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P212",
+            "data_type": "external-id"
+          },
+          "value": {
+            "type": "value",
+            "content": "{{ isbn_13 }}"
+          }
+        }
+      ],
+      "P957": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P957",
+            "data_type": "external-id"
+          },
+          "value": {
+            "type": "value",
+            "content": "{{ isbn_10 }}"
+          }
+        }
+      ],
+      "P5749": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P5749",
+            "data_type": "external-id"
+          },
+          "value": {
+            "type": "value",
+            "content": "{{ asin }}"
+          }
+        }
+      ],
+      "P437": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P437",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q139660346"
+          }
+        },
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P437",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q139660326"
+          }
+        }
+      ],
+      "P750": [
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P2699",
+                "data_type": "url"
+              },
+              "value": {
+                "type": "value",
+                "content": "{{ kobo_url }}"
+              }
+            },
+            {
+              "property": {
+                "id": "P437",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q139660346"
+              }
+            },
+            {
+              "property": {
+                "id": "P437",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q139660326"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P750",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q139545632"
+          }
+        },
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P2699",
+                "data_type": "url"
+              },
+              "value": {
+                "type": "value",
+                "content": "https://www.overdrive.com/search?q={{ overdrive_uuid }}"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P750",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q139545673"
+          }
+        },
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P2699",
+                "data_type": "url"
+              },
+              "value": {
+                "type": "value",
+                "content": "https://www.viz.com/manga-books/manga/wd/product/{{ viz_media_id }}/digital"
+              }
+            },
+            {
+              "property": {
+                "id": "P437",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q139660326"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P750",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q139660720"
+          }
+        }
+      ],
+      "P12351": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P12351",
+            "data_type": "external-id"
+          },
+          "value": {
+            "type": "value",
+            "content": "{{ bookbrainz_edition_id }}"
+          }
+        }
+      ],
+      "P2969": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P2969",
+            "data_type": "external-id"
+          },
+          "value": {
+            "type": "value",
+            "content": "{{ goodreads_version_id }}"
+          }
+        }
+      ],
+      "P243": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P243",
+            "data_type": "external-id"
+          },
+          "value": {
+            "type": "value",
+            "content": "{{ oclc_number }}"
+          }
+        }
+      ],
+      "P648": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P648",
+            "data_type": "external-id"
+          },
+          "value": {
+            "type": "value",
+            "content": "{{ open_library_id }}"
+          }
+        }
+      ],
+      "P675": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P675",
+            "data_type": "external-id"
+          },
+          "value": {
+            "type": "value",
+            "content": "{{ google_books_id }}"
+          }
+        }
+      ],
+      "P5905": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P5905",
+            "data_type": "external-id"
+          },
+          "value": {
+            "type": "value",
+            "content": "{{ comic_vine_id }}"
+          }
+        }
+      ],
+      "P1032": [
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P750",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q139545632"
+              }
+            }
+          ],
+          "references": [
+            {
+              "parts": [
+                {
+                  "property": {
+                    "id": "P854",
+                    "data_type": "url"
+                  },
+                  "value": {
+                    "type": "value",
+                    "content": "{{ kobo_url }}"
+                  }
+                }
+              ]
+            }
+          ],
+          "property": {
+            "id": "P1032",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q139545548"
+          }
+        }
+      ],
+      "P6216": [
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P275",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q1752207"
+              }
+            },
+            {
+              "property": {
+                "id": "P9905",
+                "data_type": "time"
+              },
+              "value": {
+                "type": "value",
+                "content": {
+                  "time": "+1997-00-00T00:00:00Z",
+                  "precision": 9,
+                  "calendarmodel": "http://www.wikidata.org/entity/Q1985727"
+                }
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P6216",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q50423863"
+          }
+        }
+      ],
+      "P10225": [
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P407",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q1860"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P10225",
+            "data_type": "url"
+          },
+          "value": {
+            "type": "value",
+            "content": "https://www.viz.com/manga-books/manga/wd/product/{{ viz_media_id }}/digital"
+          }
+        }
+      ],
+      "P3575": [
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P750",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q139545632"
+              }
+            },
+            {
+              "property": {
+                "id": "P2701",
+                "data_type": "wikibase-item"
+              },
+              "value": {
+                "type": "value",
+                "content": "Q27196933"
+              }
+            }
+          ],
+          "references": [
+            {
+              "parts": [
+                {
+                  "property": {
+                    "id": "P854",
+                    "data_type": "url"
+                  },
+                  "value": {
+                    "type": "value",
+                    "content": "{{ kobo_url }}"
+                  }
+                }
+              ]
+            }
+          ],
+          "property": {
+            "id": "P3575",
+            "data_type": "quantity"
+          },
+          "value": {
+            "type": "value",
+            "content": {
+              "amount": "+{{ kobo_data_size }}",
+              "unit": "http://www.wikidata.org/entity/Q79758"
+            }
+          }
+        }
+      ],
+      "P3931": [
+        {
+          "rank": "normal",
+          "qualifiers": [
+            {
+              "property": {
+                "id": "P1932",
+                "data_type": "string"
+              },
+              "value": {
+                "type": "value",
+                "content": "Eiichiro Oda"
+              }
+            }
+          ],
+          "references": [],
+          "property": {
+            "id": "P3931",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q2010"
+          }
+        }
+      ]
+    }
+  },
+  "comment": ""
+}

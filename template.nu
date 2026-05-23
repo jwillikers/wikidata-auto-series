@@ -27,6 +27,7 @@ export const common_template_variables = {
   P1234: "isfdb_publication_id"
   P243: "oclc_number"
   P478: "index" # volume property
+  P14071: "cover_art_archive_image_id"
 }
 
 # Fetch a Wikidata item from the Wikidata API and create a JSON file submission template from it.
@@ -88,6 +89,18 @@ def main [
       $template.item.statements | columns | reduce --fold {} {|it, acc|
         $acc | insert $it (
           $template.item.statements | get $it | reject --optional id
+        )
+      }
+    )
+  )
+
+  # Remove reference hashes
+  let template = (
+    $template
+    | update item.statements (
+      $template.item.statements | columns | reduce --fold {} {|statement_id, acc|
+        $acc | insert $statement_id (
+          $template.item.statements | get $statement_id | reject --optional references.hash
         )
       }
     )

@@ -19,6 +19,13 @@ python3Packages.buildPythonApplication rec {
     hash = "sha256-s47y14YHL/ihAUCnneDcTlyVQj3rUgUnBLD2dPBGD/Y=";
   };
 
+  postPatch = ''
+    substituteInPlace requirements.txt \
+      --replace-fail 'isbnlib>=3.10.9,<3.11.0' 'isbnlib>=3.11.0'
+    substituteInPlace setup.py \
+      --replace-fail "install_requires=['isbnlib>=3.10.9,<3.11.0']," "install_requires=['isbnlib>=3.11.0'],"
+  '';
+
   build-system = with python3Packages; [ setuptools ];
 
   dependencies = with python3Packages; [
@@ -28,6 +35,11 @@ python3Packages.buildPythonApplication rec {
   nativeCheckInputs = with python3Packages; [
     pytestCheckHook
     pytest-cov-stub
+  ];
+
+  # Imports a private path in isbnlib that is not available in isbnlib2
+  disabledTestPaths = [
+    "isbntools/contrib/test/test_rename.py"
   ];
 
   disabledTests = [

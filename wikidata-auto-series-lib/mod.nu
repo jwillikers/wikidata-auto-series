@@ -55,6 +55,8 @@ export const template_variables = [
   musicbrainz_release_id_1
   musicbrainz_release_id_2
   musicbrainz_release_id_2_number_of_parts_of_this_work
+  point_in_time
+  copyright_year
   kobo_data_size
   pdf_data_size
   pdf_blake3
@@ -64,8 +66,15 @@ export const template_variables = [
   drm_free_epub_data_size
   kobo_url
   libro_fm_data_size_m4b
+  libro_fm_data_size_mp3_zip
+  libro_fm_mp3_zip_blake3
+  libro_fm_mp3_zip_sha3_512
+  libro_fm_m4b_blake3
+  libro_fm_m4b_sha3_512
   overdrive_uuid
   yen_press_url
+  ebooks_com_id
+  ebooks_com_data_size
 ]
 
 export def hyphenate_isbn []: [string -> string] {
@@ -529,12 +538,14 @@ export def open_library_get_edition_identifiers [
       }
     }
   )
-  [isbn_10 isbn_13 oclc_numbers publish_date] | reduce --fold $identifiers {|id, acc|
+  [copyright_date isbn_10 isbn_13 oclc_numbers publish_date] | reduce --fold $identifiers {|id, acc|
     if ($response.body | get --optional $id | is-empty) {
       $acc
     } else {
       if $id == "publish_date" {
         $acc | insert "publication_date" ($response.body | get $id)
+      } else if $id == "copyright_date" {
+        $acc | insert "copyright_year" ($response.body | get $id)
       } else {
         let values = $response.body | get --optional $id
         if ($values | is-empty) {

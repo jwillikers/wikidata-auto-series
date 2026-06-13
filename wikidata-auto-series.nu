@@ -104,6 +104,8 @@ def main [
             }
           } else if $data_field == "isbn_13_no_hyphens" and ($item | get --optional isbn_13 | is-not-empty) {
             $item | get --optional isbn_13 | str replace --all "-" ""
+          } else if $data_field == "point_in_time" and ($item | get --optional point_in_time | is-empty) {
+            date now | format date '%Y-%m-%d'
           } else {
             $item | get --optional $data_field
           }

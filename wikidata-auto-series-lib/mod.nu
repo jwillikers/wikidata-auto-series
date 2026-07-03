@@ -45,6 +45,7 @@ export const template_variables = [
   isbn_13_no_hyphens
   isbn_10
   duration
+  gcd_issue_id
   bookbrainz_edition_id
   cover_art_archive_image_id
   oclc_number
@@ -491,6 +492,7 @@ export const open_library_edition_identifier_translation_table = {
   "google": "google_books_id"
   "musicbrainz": "musicbrainz_release_id"
   "overdrive": "overdrive_uuid"
+  "grand_comics_database": "gcd_issue_id"
   # "wikidata": "wikidata_work_id"
   "wikidata": "wikidata_item_id"
 }

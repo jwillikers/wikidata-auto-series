@@ -14,6 +14,7 @@ def main [
   template_file: path # Template file to use.
   data_file: path # Data file containing values for template variables for each item.
   --previous: string # Wikidata ID of previous item in the series
+  --index-multiplier: int = 2 # Multiplier for a series index. Used to produce the begin_index and end_index template values.
 ] {
   let id_variables = ($template_variables | where $it not-in [publication_date publication_year])
 
@@ -106,6 +107,10 @@ def main [
             $item | get --optional isbn_13 | str replace --all "-" ""
           } else if $data_field == "point_in_time" and ($item | get --optional point_in_time | is-empty) {
             date now | format date '%Y-%m-%d'
+          } else if $data_field == "begin_index" and ($item | get --optional begin_index | is-empty) {
+            (($index | into int) * $index_multiplier - 1) | into string
+          } else if $data_field == "end_index" and ($item | get --optional end_index | is-empty) {
+            (($index | into int) * $index_multiplier) | into string
           } else {
             $item | get --optional $data_field
           }

@@ -23,6 +23,8 @@ export const template_variables = [
   number_of_parts_of_this_work
   open_library_id
   # Work identifiers
+  begin_index
+  end_index
   bookbrainz_work_id
   bookbrainz_work_id_1
   bookbrainz_work_id_2

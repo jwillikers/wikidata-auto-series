@@ -40,6 +40,10 @@ export const template_variables = [
   musicbrainz_work_id_2
   viz_media_id
   # Edition identifiers
+  thickness
+  number_of_pages
+  mass
+  original_copyright_year
   wikidata_work_id
   isbn_13
   isbn_13_no_hyphens

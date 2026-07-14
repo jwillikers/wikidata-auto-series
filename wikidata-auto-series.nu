@@ -30,6 +30,19 @@ def main [
   let $data = (open $data_file)
   let template = (open $template_file)
 
+  # Used to update the Wikidata work ID for each edition when creating works.
+  let edition_data_file = (
+    if ($data_file | path parse | get stem | str ends-with "-work-data") {
+      $data_file | path parse | update stem ($in.stem | str replace "-work-data" "-edition-data") | path join
+    }
+  )
+  # log debug $"edition_data_file: ($edition_data_file)"
+  let edition_data = (
+    if ($edition_data_file | is-not-empty) and ($edition_data_file | path exists) {
+      open $edition_data_file
+    }
+  )
+
   if "WIKIDATA_USERNAME" not-in $env {
     log error "Set environment WIKIDATA_USERNAME to your Wikidata username"
     exit 1
@@ -136,7 +149,7 @@ def main [
     )
     let payload = (
       if ($created_items | is-not-empty) {
-        $payload | str replace --all "{{ previous_wikidata_item }}" ($created_items | last)
+        $payload | str replace --all "{{ previous_wikidata_item }}" ($created_items.id | last)
       } else if ($previous | is-not-empty) {
         $payload | str replace --all "{{ previous_wikidata_item }}" $previous
       } else if ($payload | from json | get --optional item.statements.P179 | is-not-empty) {
@@ -220,14 +233,14 @@ def main [
           if ($created_items | is-empty) {
             $previous
           } else {
-            $created_items | last
+            $created_items.id | last
           }
         )
         update_part_of_the_series_followed_by $previous_item $id
       }
     }
     sleep 1sec
-    $created_items | append $id
+    $created_items | append {index: $index id: $id}
   }
 
   # todo Is it necessary to check for an error here?
@@ -240,8 +253,30 @@ def main [
   #   }
   # }
 
+  # When creating works, update the corresponding edition-data.json file with the Wikidata work ID.
+  let edition_data = (
+    if ($edition_data | is-not-empty) {
+      $edition_data | update items (
+        $edition_data.items | reduce --fold [] {|item, items|
+          let matching_created_items = $created_items | where index == $item.index
+          if ($matching_created_items | is-empty) {
+            $items | append $item
+          } else if ($matching_created_items | length) > 1 {
+            log error $"Duplicate created items with index (ansi yellow)($item.index)(ansi reset): ($matching_created_items)"
+            $items | append $item
+          } else {
+            $items | append ($item | upsert wikidata_work_id ($matching_created_items | first | get id))
+          }
+        }
+      )
+    }
+  )
+  if ($edition_data | is-not-empty) {
+    $edition_data | save --force $edition_data_file
+  }
+
   let items_list = $created_items | each {|i|
-    $"https://www.wikidata.org/wiki/($i)" | ansi link --text $i
+    $"($i.index): " + ($"https://www.wikidata.org/wiki/($i.id)" | ansi link --text $i.id)
   } | str join "\n"
   print $"Wikidata items created:\n($items_list)"
 }

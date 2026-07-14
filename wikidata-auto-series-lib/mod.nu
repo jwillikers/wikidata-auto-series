@@ -40,6 +40,7 @@ export const template_variables = [
   musicbrainz_work_id_2
   viz_media_id
   # Edition identifiers
+  fandom_article_id
   thickness
   number_of_pages
   mass

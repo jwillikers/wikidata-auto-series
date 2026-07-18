@@ -73,6 +73,7 @@ export const template_variables = [
   drm_free_epub_sha3_512
   drm_free_epub_data_size
   kobo_url
+  square_enix_manga_and_books_url
   libro_fm_data_size_m4b
   libro_fm_data_size_mp3_zip
   libro_fm_mp3_zip_blake3

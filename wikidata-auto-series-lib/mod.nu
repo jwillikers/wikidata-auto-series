@@ -473,7 +473,7 @@ export def open_library_get_work_identifiers [
     log error $"HTTP error (ansi red)($response.status)(ansi reset) getting identifiers for Open Library work ($open_library_work_id) from (ansi yellow)($open_library_api_work_url)(ansi reset): ($response.body)"
     return null
   }
-  let identifiers = $response.body.identifiers
+  let identifiers = ($response.body | get --optional identifiers)
   if ($identifiers | is-empty) {
 
   } else {

@@ -73,6 +73,7 @@ export const template_variables = [
   drm_free_epub_sha3_512
   drm_free_epub_data_size
   kobo_url
+  square_enix_manga_and_books_url
   libro_fm_data_size_m4b
   libro_fm_data_size_mp3_zip
   libro_fm_mp3_zip_blake3
@@ -473,7 +474,7 @@ export def open_library_get_work_identifiers [
     log error $"HTTP error (ansi red)($response.status)(ansi reset) getting identifiers for Open Library work ($open_library_work_id) from (ansi yellow)($open_library_api_work_url)(ansi reset): ($response.body)"
     return null
   }
-  let identifiers = $response.body.identifiers
+  let identifiers = ($response.body | get --optional identifiers)
   if ($identifiers | is-empty) {
 
   } else {

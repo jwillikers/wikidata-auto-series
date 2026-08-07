@@ -18,6 +18,7 @@ export const common_template_variables = {
   P629: "wikidata_work_id"
   P212: "isbn_13"
   P957: "isbn_10"
+  P1274: "isfdb_title_id"
   P12351: "bookbrainz_edition_id"
   P5905: "comic_vine_id"
   P2969: "goodreads_version_id"
@@ -177,11 +178,11 @@ def main [
     | update item.statements (
       $template.item.statements | columns | reduce --fold {} {|it, acc|
         let template_variable = $common_template_variables | get --optional $it
-        if ($template_variable | is-empty) {
+        if ($template_variable | is-empty) or (($template.item.statements | get $it | get value.type | first) != "value") {
           $acc | insert $it ($template.item.statements | get $it)
         } else {
           $acc | insert $it (
-            $template.item.statements | get $it | update value.content $"{{ ($template_variable) }}"
+            $template.item.statements | get $it | upsert value.content $"{{ ($template_variable) }}"
           )
         }
       }

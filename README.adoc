@@ -169,6 +169,20 @@ direnv allow
 ./wikidata-auto-series.nu template.json work-data.json --previous Q123456789
 ----
 
+=== Utilities
+
+There are several utility scripts to help fetch ids, calculate checksums, and perform other common tasks.
+These are described here.
+
+The `calculate-checksums.nu` script updates an edition data file with the SHA3-512 and BLAKE3 checksums as well as the file sizes for each of the provided files.
+The files are associated with each item according to the order in which they are provided.
+Here is an example of how the script can be used.
+
+[,nushell]
+----
+./calculate-checksums.nu data/my-series-edition-data.json ...(glob ~/my-series/*.epub | sort --natural)
+----
+
 == References
 
 * {Wikidata-REST-API}

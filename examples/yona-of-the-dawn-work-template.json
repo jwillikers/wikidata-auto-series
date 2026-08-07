@@ -189,21 +189,6 @@
           }
         }
       ],
-      "P1085": [
-        {
-          "rank": "normal",
-          "qualifiers": [],
-          "references": [],
-          "property": {
-            "id": "P1085",
-            "data_type": "external-id"
-          },
-          "value": {
-            "type": "value",
-            "content": "{{ librarything_work_id }}"
-          }
-        }
-      ],
       "P8383": [
         {
           "rank": "normal",
@@ -359,12 +344,59 @@
           },
           "value": {
             "type": "value",
-            "content": "Q725377"
+            "content": "Q125632018"
+          }
+        }
+      ],
+      "P2360": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P2360",
+            "data_type": "wikibase-item"
+          },
+          "value": {
+            "type": "value",
+            "content": "Q242492"
+          }
+        }
+      ],
+      "P2635": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P2635",
+            "data_type": "quantity"
+          },
+          "value": {
+            "type": "value",
+            "content": {
+              "amount": "+{{ number_of_parts_of_this_work }}",
+              "unit": "http://www.wikidata.org/entity/Q53460949"
+            }
+          }
+        }
+      ],
+      "P478": [
+        {
+          "rank": "normal",
+          "qualifiers": [],
+          "references": [],
+          "property": {
+            "id": "P478",
+            "data_type": "string"
+          },
+          "value": {
+            "type": "value",
+            "content": "{{ index }}"
           }
         }
       ]
-    },
-    "sitelinks": {}
+    }
   },
-  "comment": "Create Yona of the Dawn, Volume {{ index }}"
+  "comment": ""
 }

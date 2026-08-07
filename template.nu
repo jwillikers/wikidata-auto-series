@@ -177,11 +177,11 @@ def main [
     | update item.statements (
       $template.item.statements | columns | reduce --fold {} {|it, acc|
         let template_variable = $common_template_variables | get --optional $it
-        if ($template_variable | is-empty) {
+        if ($template_variable | is-empty) or (($template.item.statements | get $it | get value.type | first) != "value") {
           $acc | insert $it ($template.item.statements | get $it)
         } else {
           $acc | insert $it (
-            $template.item.statements | get $it | update value.content $"{{ ($template_variable) }}"
+            $template.item.statements | get $it | upsert value.content $"{{ ($template_variable) }}"
           )
         }
       }

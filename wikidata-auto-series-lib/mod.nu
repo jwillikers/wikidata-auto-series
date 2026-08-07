@@ -495,6 +495,7 @@ export const open_library_edition_identifier_translation_table = {
   # "ISBN-13": "isbn_13"
   # "ISBN-10": "isbn_10"
   "bookbrainz": "bookbrainz_edition_id"
+  "isfdb": "isfdb_publication_id"
   "google": "google_books_id"
   "musicbrainz": "musicbrainz_release_id"
   "overdrive": "overdrive_uuid"

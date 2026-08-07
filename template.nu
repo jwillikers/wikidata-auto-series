@@ -18,6 +18,7 @@ export const common_template_variables = {
   P629: "wikidata_work_id"
   P212: "isbn_13"
   P957: "isbn_10"
+  P1274: "isfdb_title_id"
   P12351: "bookbrainz_edition_id"
   P5905: "comic_vine_id"
   P2969: "goodreads_version_id"

@@ -1,8 +1,10 @@
 # Due to rate limiting from digikey.com and gnu.org
-accept = [429]
+accept = ["200..=299", "429"]
 
 cache = true
 exclude = [
+  # fsf.org fails the TLS handshake. It's only linked from the license text.
+  '^https?://(www\.)?fsf\.org',
   '^http://www\.gnu\.org',
   # Raspberry Pi's website returns 403 forbidden codes for GitHub runners.
   '^https://www\.raspberrypi\.com',

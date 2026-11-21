@@ -97,7 +97,13 @@ export def hyphenate_isbn []: [string -> string] {
     log error $"No ISBN output from isbn_mask for ISBN (ansi yellow)($isbn)(ansi reset)"
     return null
   }
-  $result.stdout | str trim
+  let hyphenated = $result.stdout | str trim
+  # isbn_mask exits successfully and prints its usage message for invalid input.
+  if not ($hyphenated =~ '^[0-9]+(-[0-9]+)+-[0-9X]$') {
+    log error $"Invalid ISBN (ansi yellow)($isbn)(ansi reset): ($hyphenated)"
+    return null
+  }
+  $hyphenated
 }
 
 export def into_isbn10 []: [string -> string] {
@@ -257,7 +263,9 @@ export def retry [
   delay: duration # The amount of time to wait between successive executions of the request closure
   ignore_exceptions: bool # Whether to ignore exceptions thrown by the request closure and retry
 ]: nothing -> any {
-  for attempt in 1..($retries - 1) {
+  # Nushell ranges count down when the end is less than the start, so guard against that.
+  let attempts = if $retries > 1 { 1..($retries - 1) } else { [] }
+  for attempt in $attempts {
     let response = (
       try {
         do $request
@@ -614,13 +622,7 @@ export def merge_identifiers [
 
 export def empty_identifiers []: record -> list {
   let item = $in
-  $item | columns | reduce {|id, acc|
-    if ($item | get --optional $id | is-empty) {
-      $acc | append $id
-    } else {
-      $acc
-    }
-  }
+  $item | columns | where {|id| $item | get $id | is-empty }
 }
 
 # Calculate the SHA3-512 checksum for a file using rhash.
@@ -699,13 +701,10 @@ export def hash_blake3 []: [string -> string] {
 export def list_files_in_archive []: path -> list<path> {
   let archive = $in
   (
-    ^unzip -l $archive
+    # zipinfo mode prints only the file names, one per line.
+    ^unzip -Z1 $archive
     | lines
-    | drop nth 0 1
-    | drop 2
-    | str trim
-    | parse "{length}  {date} {time}   {name}"
-    | get name
+    | where not ($it | str ends-with "/")
     | uniq
     | sort
   )

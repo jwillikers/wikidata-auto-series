@@ -3,8 +3,10 @@
   lib,
   makeWrapper,
   b3sum,
+  nushell,
   rhash,
   stdenvNoCC,
+  unzip,
   zip,
 }:
 stdenvNoCC.mkDerivation {
@@ -14,6 +16,23 @@ stdenvNoCC.mkDerivation {
   src = ./.;
 
   nativeBuildInputs = [ makeWrapper ];
+
+  doCheck = true;
+
+  nativeCheckInputs = [
+    b3sum
+    isbntools
+    nushell
+    rhash
+    unzip
+    zip
+  ];
+
+  checkPhase = ''
+    runHook preCheck
+    HOME="$(mktemp --directory)" nu wikidata-auto-series-lib-tests.nu
+    runHook postCheck
+  '';
 
   installPhase = ''
     runHook preInstall
@@ -34,6 +53,7 @@ stdenvNoCC.mkDerivation {
         lib.makeBinPath [
           b3sum
           rhash
+          unzip
           zip
         ]
       }

@@ -21,6 +21,11 @@ run:
     #!/usr/bin/env nu
     ^python driverbrainz.py
 
+alias t := test
+
+test:
+    nu wikidata-auto-series-lib-tests.nu
+
 alias u := update
 alias up := update
 

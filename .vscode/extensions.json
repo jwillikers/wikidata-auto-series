@@ -1,8 +1,5 @@
 {
   "recommendations": [
-    "charliermarsh.ruff",
-    "ms-python.vscode-pylance",
-    "ms-python.python",
     "mkhl.direnv",
     "ibecker.treefmt-vscode",
     "asciidoctor.asciidoctor-vscode",

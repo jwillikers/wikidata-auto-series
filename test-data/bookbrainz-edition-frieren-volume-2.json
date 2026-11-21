@@ -1,0 +1,53 @@
+{
+  "authorCredits": {
+    "authorCount": 2,
+    "id": 8616,
+    "names": [
+      {
+        "authorCreditID": 8616,
+        "position": 1,
+        "authorBBID": "a8c1be27-e17b-477d-8036-bbb6868a0357",
+        "name": "Tsukasa Abe",
+        "joinPhrase": ""
+      },
+      {
+        "authorCreditID": 8616,
+        "position": 0,
+        "authorBBID": "2f528aec-6f65-451a-87c4-357e450036c0",
+        "name": "Kanehito Yamada",
+        "joinPhrase": " art by "
+      }
+    ]
+  },
+  "bbid": "ef7fad75-fcd9-492b-b5d2-9a2d6eedb4d3",
+  "defaultAlias": {
+    "language": "eng",
+    "name": "Frieren: Beyond Journey’s End 2",
+    "primary": true,
+    "sortName": "Frieren: Beyond Journey’s End 2"
+  },
+  "depth": null,
+  "disambiguation": "2022 eBook",
+  "editionFormat": "eBook",
+  "height": null,
+  "languages": [
+    "eng"
+  ],
+  "pages": null,
+  "publishers": [
+    {
+      "bbid": "0dc4a693-3199-4ac3-bf51-33c2fe8b5dc5",
+      "name": "Shonen Sunday",
+      "sortName": "Shonen Sunday"
+    },
+    {
+      "bbid": "dc15aba6-2a5f-4adb-bff0-8007df700df1",
+      "name": "Viz Media",
+      "sortName": "Viz Media"
+    }
+  ],
+  "releaseEventDate": "+002022-01-11",
+  "status": "Official",
+  "weight": null,
+  "width": null
+}

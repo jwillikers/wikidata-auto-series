@@ -9,6 +9,8 @@ use wikidata-auto-series-lib-tests/identifiers.nu
 use wikidata-auto-series-lib-tests/retry.nu
 use wikidata-auto-series-lib-tests/checksums.nu
 use wikidata-auto-series-lib-tests/file_formats.nu
+use wikidata-auto-series-lib-tests/bookbrainz.nu
+use wikidata-auto-series-lib-tests/open_library.nu
 
 def main [] {
   isbn run_tests
@@ -16,5 +18,7 @@ def main [] {
   retry run_tests
   checksums run_tests
   file_formats run_tests
+  bookbrainz run_tests
+  open_library run_tests
   print $"(ansi green)All tests passed!(ansi reset)"
 }

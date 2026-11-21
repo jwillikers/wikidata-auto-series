@@ -1,0 +1,113 @@
+{
+  "works": [
+    {
+      "key": "/works/OL42575511W"
+    }
+  ],
+  "title": "Frieren: Beyond Journey’s End 2",
+  "publishers": [
+    "SHONEN SUNDAY"
+  ],
+  "publish_date": "2022-01-11",
+  "key": "/books/OL60674406M",
+  "type": {
+    "key": "/type/edition"
+  },
+  "identifiers": {
+    "amazon": [
+      "B09J6NPVRJ"
+    ],
+    "goodreads": [
+      "59348522"
+    ],
+    "google": [
+      "FO9HEAAAQBAJ"
+    ],
+    "bookbrainz": [
+      "ef7fad75-fcd9-492b-b5d2-9a2d6eedb4d3"
+    ],
+    "overdrive": [
+      "F4FB9C00-6673-49F5-8BFF-27813A9DE19A"
+    ],
+    "storygraph": [
+      "0101919e-d87d-4aec-96e4-98aeaf70da7d"
+    ],
+    "wikidata": [
+      "Q139605488"
+    ]
+  },
+  "covers": [
+    15144833
+  ],
+  "publish_places": [
+    "San Francisco, California, United States of America"
+  ],
+  "series": [
+    "Frieren: Beyond Journey’s End"
+  ],
+  "contributors": [
+    {
+      "role": "Author name as appears on this edition",
+      "name": "Kanehito Yamada"
+    },
+    {
+      "role": "Illustrator",
+      "name": "Tsukasa Abe"
+    },
+    {
+      "role": "Cover Art",
+      "name": "Tsukasa Abe"
+    },
+    {
+      "role": "Translator",
+      "name": "Misa ‘Japanese Ammo’"
+    },
+    {
+      "role": "Lettering",
+      "name": "Annaliese ‘Ace’ Christman"
+    },
+    {
+      "role": "Designer",
+      "name": "Yukiko Whitley"
+    },
+    {
+      "role": "Editor",
+      "name": "Mike Montesa"
+    }
+  ],
+  "languages": [
+    {
+      "key": "/languages/eng"
+    }
+  ],
+  "translation_of": "葬送のフリーレン 2",
+  "translated_from": [
+    {
+      "key": "/languages/jpn"
+    }
+  ],
+  "other_titles": [
+    "Frieren: Beyond Journey’s End, Vol. 2"
+  ],
+  "physical_format": "eBook",
+  "number_of_pages": 200,
+  "isbn_10": [
+    "1974731219"
+  ],
+  "isbn_13": [
+    "9781974731213"
+  ],
+  "oclc_numbers": [
+    "1292740943"
+  ],
+  "latest_revision": 6,
+  "revision": 6,
+  "created": {
+    "type": "/type/datetime",
+    "value": "2025-11-21T01:38:18.791977"
+  },
+  "last_modified": {
+    "type": "/type/datetime",
+    "value": "2026-05-02T13:43:31.003874"
+  }
+}

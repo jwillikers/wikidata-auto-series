@@ -1,0 +1,33 @@
+{
+  "bbid": "ef7fad75-fcd9-492b-b5d2-9a2d6eedb4d3",
+  "identifiers": [
+    {
+      "type": "OCN/Worldcat ID",
+      "value": "1292740943"
+    },
+    {
+      "type": "Goodreads Book ID",
+      "value": "59348522"
+    },
+    {
+      "type": "Wikidata Edition ID",
+      "value": "Q139605488"
+    },
+    {
+      "type": "ISBN-13",
+      "value": "978-1-9747-3121-3"
+    },
+    {
+      "type": "OpenLibrary Book ID",
+      "value": "OL60674406M"
+    },
+    {
+      "type": "Amazon ASIN",
+      "value": "B09J6NPVRJ"
+    },
+    {
+      "type": "ISBN-10",
+      "value": "1-9747-3121-9"
+    }
+  ]
+}

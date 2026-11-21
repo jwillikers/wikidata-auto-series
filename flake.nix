@@ -67,8 +67,8 @@
               lychee
               nushell
               treefmtEval.config.build.wrapper
-              (builtins.attrValues treefmtEval.config.build.programs)
             ]
+            ++ builtins.attrValues treefmtEval.config.build.programs
             ++ pre-commit.enabledPackages;
           inputsFrom = with pkgs; [
             wikidata-auto-series

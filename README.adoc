@@ -169,6 +169,32 @@ direnv allow
 ./wikidata-auto-series.nu template.json work-data.json --previous Q123456789
 ----
 
+=== Testing
+
+The `wikidata-auto-series-lib` module has unit tests in the `wikidata-auto-series-lib-tests` directory.
+The tests are grouped into modules by functionality and don't require network access.
+Responses from the BookBrainz and Open Library APIs used by the tests are saved in the `test-data` directory.
+
+Run the tests with `just`.
+
+[,sh]
+----
+just test
+----
+
+Without direnv, run the tests in the development environment with `nix develop`.
+
+[,sh]
+----
+nix develop --command nu wikidata-auto-series-lib-tests.nu
+----
+
+The tests also run when building the package with `nix build` or checking the flake with `nix flake check`, as well as in CI.
+To run all of the checks, including linting, link checking, and formatting, use `just check`.
+
+To add tests, add a `test_` function to the corresponding module in `wikidata-auto-series-lib-tests` and call it from that module's `run_tests` function.
+A new module must also be imported and called in `wikidata-auto-series-lib-tests.nu`.
+
 === Utilities
 
 There are several utility scripts to help fetch ids, calculate checksums, and perform other common tasks.

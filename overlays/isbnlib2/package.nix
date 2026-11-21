@@ -14,7 +14,7 @@
 
 buildPythonPackage rec {
   pname = "isbnlib";
-  version = "3.11.14";
+  version = "3.11.26";
   pyproject = true;
 
   # Several tests fail and suggest that the package is incompatible with python >= 3.14
@@ -24,7 +24,7 @@ buildPythonPackage rec {
     owner = "hans-fritz-pommes";
     repo = "isbnlib";
     tag = "v${version}";
-    hash = "sha256-8z0TnPokKRL9pqCyMIbF0uw8TItEpJmUcu21a0cw5oA=";
+    hash = "sha256-scPRLEQn0RunmsADIZiVRM1ztAu8eMXy2kOS36B1hvk=";
   };
 
   postPatch = ''

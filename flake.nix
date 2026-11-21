@@ -62,10 +62,15 @@
             with pkgs;
             [
               asciidoctor
+              b3sum
               fish
+              isbntools
               just
               lychee
               nushell
+              rhash
+              unzip
+              zip
               treefmtEval.config.build.wrapper
             ]
             ++ builtins.attrValues treefmtEval.config.build.programs

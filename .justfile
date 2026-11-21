@@ -1,14 +1,12 @@
-default: run
+default: check
 
 alias c := check
 
 check: && format
     yamllint .
-    ruff check --fix .
-    mypy
-    pyright --warnings
-    asciidoctor **/*.adoc
-    lychee --cache **/*.html
+    asciidoctor *.adoc
+    lychee --cache *.html
+    nu wikidata-auto-series-lib-tests.nu
     nix flake check
 
 alias f := format
@@ -17,9 +15,10 @@ alias fmt := format
 format:
     treefmt
 
-run:
-    #!/usr/bin/env nu
-    ^python driverbrainz.py
+alias t := test
+
+test:
+    nu wikidata-auto-series-lib-tests.nu
 
 alias u := update
 alias up := update

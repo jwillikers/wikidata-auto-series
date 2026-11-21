@@ -97,7 +97,13 @@ export def hyphenate_isbn []: [string -> string] {
     log error $"No ISBN output from isbn_mask for ISBN (ansi yellow)($isbn)(ansi reset)"
     return null
   }
-  $result.stdout | str trim
+  let hyphenated = $result.stdout | str trim
+  # isbn_mask exits successfully and prints its usage message for invalid input.
+  if not ($hyphenated =~ '^[0-9]+(-[0-9]+)+-[0-9X]$') {
+    log error $"Invalid ISBN (ansi yellow)($isbn)(ansi reset): ($hyphenated)"
+    return null
+  }
+  $hyphenated
 }
 
 export def into_isbn10 []: [string -> string] {
@@ -257,7 +263,9 @@ export def retry [
   delay: duration # The amount of time to wait between successive executions of the request closure
   ignore_exceptions: bool # Whether to ignore exceptions thrown by the request closure and retry
 ]: nothing -> any {
-  for attempt in 1..($retries - 1) {
+  # Nushell ranges count down when the end is less than the start, so guard against that.
+  let attempts = if $retries > 1 { 1..($retries - 1) } else { [] }
+  for attempt in $attempts {
     let response = (
       try {
         do $request
@@ -308,57 +316,100 @@ export const bookbrainz_identifier_translation_table = {
   "Barcode": "upc"
 }
 
-# Fetch the identifiers for a BookBrainz edition
-export def bookbrainz_get_edition_identifiers [
+# Fetch JSON from a URL, retrying when the request fails or the server returns a transient error.
+#
+# Returns the response body, or null when the request fails.
+export def fetch_json [
+  url: string # The URL to fetch
+  description: string # A description of what is being fetched for log messages, i.e. "identifiers for BookBrainz edition <id>"
   --retries: int = 3 # The number of retries to perform when a request fails
   --retry-delay: duration = 5sec # The interval between successive attempts when there is a failure
-]: [string -> table] {
-  let bookbrainz_edition_id = $in
-  let bookbrainz_api_edition_identifiers_url = $"https://api.bookbrainz.org/1/edition/($bookbrainz_edition_id)/identifiers"
+]: nothing -> any {
   let request = {
     (
       http get
+        --allow-errors
         --full
         --headers {
           "User-Agent": $user_agent
           "Accept": "application/json"
         }
-        $"($bookbrainz_api_edition_identifiers_url)"
+        $url
     )
   }
   let response = (
     try {
       retry_http $request $retries $retry_delay
     } catch {|error|
-      log error $"Error getting identifiers for BookBrainz edition ($bookbrainz_edition_id) from (ansi yellow)($bookbrainz_api_edition_identifiers_url)(ansi reset): ($error.debug)"
+      log error $"Error getting ($description) from (ansi yellow)($url)(ansi reset): ($error.debug)"
       return null
     }
   )
   if ($response.status != 200) {
-    log error $"HTTP error (ansi red)($response.status)(ansi reset) getting identifiers for BookBrainz edition ($bookbrainz_edition_id) from (ansi yellow)($bookbrainz_api_edition_identifiers_url)(ansi reset): ($response.body)"
+    log error $"HTTP error (ansi red)($response.status)(ansi reset) getting ($description) from (ansi yellow)($url)(ansi reset): ($response.body)"
     return null
   }
-  let identifiers = $response.body | get --optional identifiers
-  if ($identifiers | is-empty) {
+  $response.body
+}
 
-  } else {
-    $identifiers | reduce --fold {} {|type_value_pair, acc|
-      # todo Handle multiple values here
-      let value = (
-        if ($type_value_pair.type in ["ISBN-10" "ISBN-13"]) {
-          $type_value_pair.value | str replace --all "-" ""
-        } else {
-          $type_value_pair.value
-        }
-      )
-      try {
-        $acc | insert ($bookbrainz_identifier_translation_table | get $type_value_pair.type) $value
-      } catch {|error|
-        log warning $"Error inserting the value ($value) for identifier ($bookbrainz_identifier_translation_table | get $type_value_pair.type) into the record ($acc). Most likely a duplicate. Ignoring."
-        $acc
-      }
-    }
+# Parse the identifiers from a BookBrainz edition or work identifiers API response.
+#
+# ISBNs are returned without hyphens.
+# Identifiers of an unknown type are ignored, as are duplicates after the first value.
+export def bookbrainz_parse_identifiers []: [record -> record, nothing -> nothing] {
+  let body = $in
+  if ($body | is-empty) {
+    return null
   }
+  $body | get --optional identifiers | default [] | reduce --fold {} {|type_value_pair, acc|
+    let id = $bookbrainz_identifier_translation_table | get --optional $type_value_pair.type
+    if ($id | is-empty) {
+      log warning $"Ignoring unknown BookBrainz identifier type (ansi yellow)($type_value_pair.type)(ansi reset) with the value ($type_value_pair.value)"
+      return $acc
+    }
+    let value = (
+      if ($id in ["isbn_10" "isbn_13"]) {
+        $type_value_pair.value | str replace --all "-" ""
+      } else {
+        $type_value_pair.value
+      }
+    )
+    # todo Handle multiple values here
+    if $id in $acc {
+      log warning $"Ignoring additional value ($value) for identifier ($id), which already has the value ($acc | get $id)"
+      return $acc
+    }
+    $acc | insert $id $value
+  }
+}
+
+# Parse the publication date from a BookBrainz edition API response.
+#
+# Returned in "yyyy-mm-dd" format.
+export def bookbrainz_parse_edition_publication_date []: [record -> string, record -> nothing, nothing -> nothing] {
+  let body = $in
+  let publication_date = $body | get --optional releaseEventDate
+  if ($publication_date | is-empty) {
+    return null
+  }
+  # BookBrainz uses an extended year format, i.e. "+002022-01-11".
+  $publication_date | str replace --regex '^\+00' ""
+}
+
+# Fetch the identifiers for a BookBrainz edition
+export def bookbrainz_get_edition_identifiers [
+  --retries: int = 3 # The number of retries to perform when a request fails
+  --retry-delay: duration = 5sec # The interval between successive attempts when there is a failure
+]: [string -> record, string -> nothing] {
+  let bookbrainz_edition_id = $in
+  (
+    fetch_json
+      --retries $retries
+      --retry-delay $retry_delay
+      $"https://api.bookbrainz.org/1/edition/($bookbrainz_edition_id)/identifiers"
+      $"identifiers for BookBrainz edition ($bookbrainz_edition_id)"
+    | bookbrainz_parse_identifiers
+  )
 }
 
 # Get edition publication date for a BookBrainz edition
@@ -366,126 +417,50 @@ export def bookbrainz_get_edition_identifiers [
 export def bookbrainz_get_edition_publication_date [
   --retries: int = 3 # The number of retries to perform when a request fails
   --retry-delay: duration = 5sec # The interval between successive attempts when there is a failure
-]: [string -> table] {
+]: [string -> string, string -> nothing] {
   let bookbrainz_edition_id = $in
-  let bookbrainz_api_edition_url = $"https://api.bookbrainz.org/1/edition/($bookbrainz_edition_id)"
-  let request = {
-    (
-      http get
-        --full
-        --headers {
-          "User-Agent": $user_agent
-          "Accept": "application/json"
-        }
-        $"($bookbrainz_api_edition_url)"
-    )
-  }
-  let response = (
-    try {
-      retry_http $request $retries $retry_delay
-    } catch {|error|
-      log error $"Error getting publication date for BookBrainz edition ($bookbrainz_edition_id) from (ansi yellow)($bookbrainz_api_edition_url)(ansi reset): ($error.debug)"
-      return null
-    }
+  (
+    fetch_json
+      --retries $retries
+      --retry-delay $retry_delay
+      $"https://api.bookbrainz.org/1/edition/($bookbrainz_edition_id)"
+      $"publication date for BookBrainz edition ($bookbrainz_edition_id)"
+    | bookbrainz_parse_edition_publication_date
   )
-  if ($response.status != 200) {
-    log error $"HTTP error (ansi red)($response.status)(ansi reset) getting identifiers for BookBrainz edition ($bookbrainz_edition_id) from (ansi yellow)($bookbrainz_api_edition_url)(ansi reset): ($response.body)"
-    return null
-  }
-  let publication_date = $response.body | get releaseEventDate
-  if ($publication_date | is-not-empty) {
-    $publication_date | str replace "+00" ""
-  }
 }
 
 # Fetch the identifiers for a BookBrainz work
 export def bookbrainz_get_work_identifiers [
   --retries: int = 3 # The number of retries to perform when a request fails
   --retry-delay: duration = 5sec # The interval between successive attempts when there is a failure
-]: [string -> table] {
+]: [string -> record, string -> nothing] {
   let bookbrainz_work_id = $in
-  let bookbrainz_api_work_identifiers_url = $"https://api.bookbrainz.org/1/work/($bookbrainz_work_id)/identifiers"
-  let request = {
-    (
-      http get
-        --full
-        --headers {
-          "User-Agent": $user_agent
-          "Accept": "application/json"
-        }
-        $"($bookbrainz_api_work_identifiers_url)"
-    )
-  }
-  let response = (
-    try {
-      retry_http $request $retries $retry_delay
-    } catch {|error|
-      log error $"Error getting identifiers for BookBrainz work ($bookbrainz_work_id) from (ansi yellow)($bookbrainz_api_work_identifiers_url)(ansi reset): ($error.debug)"
-      return null
-    }
+  (
+    fetch_json
+      --retries $retries
+      --retry-delay $retry_delay
+      $"https://api.bookbrainz.org/1/work/($bookbrainz_work_id)/identifiers"
+      $"identifiers for BookBrainz work ($bookbrainz_work_id)"
+    | bookbrainz_parse_identifiers
   )
-  if ($response.status != 200) {
-    log error $"HTTP error (ansi red)($response.status)(ansi reset) getting identifiers for BookBrainz work ($bookbrainz_work_id) from (ansi yellow)($bookbrainz_api_work_identifiers_url)(ansi reset): ($response.body)"
-    return null
-  }
-  let identifiers = $response.body.identifiers
-  if ($identifiers | is-empty) {
-
-  } else {
-    $identifiers | reduce --fold {} {|type_value_pair, acc|
-      # todo Handle multiple values here
-      try {
-        $acc | insert ($bookbrainz_identifier_translation_table | get $type_value_pair.type) $type_value_pair.value
-      } catch {|error|
-        log warning $"Error inserting the value ($type_value_pair.value) for identifier ($bookbrainz_identifier_translation_table | get $type_value_pair.type) into the record ($acc). Most likely a duplicate. Ignoring."
-        $acc
-      }
-    }
-  }
 }
 
-# Fetch the identifiers for an Open Library work
-export def open_library_get_work_identifiers [
-  --retries: int = 3 # The number of retries to perform when a request fails
-  --retry-delay: duration = 15sec # The interval between successive attempts when there is a failure
-]: [string -> table] {
-  let open_library_work_id = $in
-  let open_library_api_work_url = $"https://openlibrary.org/works/($open_library_work_id).json"
-  let request = {
-    (
-      http get
-        --full
-        --headers {
-          "User-Agent": $user_agent
-          "Accept": "application/json"
-        }
-        $"($open_library_api_work_url)"
-    )
-  }
-  let response = (
-    try {
-      retry_http $request $retries $retry_delay
-    } catch {|error|
-      log error $"Error getting identifiers for Open Library work ($open_library_work_id) from (ansi yellow)($open_library_api_work_url)(ansi reset): ($error.debug)"
-      return null
-    }
-  )
-  if ($response.status != 200) {
-    log error $"HTTP error (ansi red)($response.status)(ansi reset) getting identifiers for Open Library work ($open_library_work_id) from (ansi yellow)($open_library_api_work_url)(ansi reset): ($response.body)"
+# Parse the identifiers from an Open Library work API response.
+#
+# Each identifier is suffixed with "_work_id", i.e. "goodreads" becomes "goodreads_work_id".
+export def open_library_parse_work_identifiers []: [record -> record, nothing -> nothing] {
+  let body = $in
+  if ($body | is-empty) {
     return null
   }
-  let identifiers = ($response.body | get --optional identifiers)
-  if ($identifiers | is-empty) {
-
-  } else {
-    $identifiers | columns | reduce --fold {} {|id, acc|
-      # todo Handle multiple values here
-      let identifier_values = $identifiers | get $id
-      if ($identifier_values | length) > 1 {
-        log warning $"More than one value for ($id): ($identifiers). Ignoring all but the first value."
-      }
-      $acc | insert ($id + "_work_id") ($identifier_values | first)
+  let identifiers = $body | get --optional identifiers | default {}
+  $identifiers | columns | reduce --fold {} {|id, acc|
+    # todo Handle multiple values here
+    let identifier_values = $identifiers | get $id
+    if ($identifier_values | length) > 1 {
+      log warning $"More than one value for ($id): ($identifier_values). Ignoring all but the first value."
     }
+    $acc | insert ($id + "_work_id") ($identifier_values | first)
   }
 }
 
@@ -504,85 +479,84 @@ export const open_library_edition_identifier_translation_table = {
   "wikidata": "wikidata_item_id"
 }
 
+# Parse the identifiers from an Open Library edition API response.
+#
+# This includes the ISBNs, without hyphens, the OCLC number, the publication date, and the copyright year.
+# Identifiers of an unknown type are ignored.
+export def open_library_parse_edition_identifiers []: [record -> record, nothing -> nothing] {
+  let body = $in
+  if ($body | is-empty) {
+    return null
+  }
+  let identifiers = $body | get --optional identifiers | default {} | reject --optional storygraph
+  let parsed_identifiers = $identifiers | columns | reduce --fold {} {|id, acc|
+    let translated_id = $open_library_edition_identifier_translation_table | get --optional $id
+    if ($translated_id | is-empty) {
+      log warning $"Ignoring unknown Open Library identifier (ansi yellow)($id)(ansi reset) with the values ($identifiers | get $id)"
+      return $acc
+    }
+    # todo Handle multiple values here
+    let values = $identifiers | get $id
+    if ($values | length) > 1 {
+      log warning $"Multiple values for identifier ($translated_id): ($values). Ignoring all but the first."
+    }
+    $acc | insert $translated_id ($values | first)
+  }
+  let fields = {
+    copyright_date: "copyright_year"
+    isbn_10: "isbn_10"
+    isbn_13: "isbn_13"
+    oclc_numbers: "oclc_number"
+    publish_date: "publication_date"
+  }
+  $fields | items {|field, id| {field: $field id: $id} } | reduce --fold $parsed_identifiers {|it, acc|
+    let values = $body | get --optional $it.field
+    if ($values | is-empty) {
+      return $acc
+    }
+    if ($values | describe | str starts-with "list") {
+      if ($values | length) > 1 {
+        log warning $"Multiple values for identifier ($it.id): ($values). Ignoring all but the first."
+      }
+      let value = $values | first
+      let value = if $it.id in ["isbn_10" "isbn_13"] { $value | str replace --all "-" "" } else { $value }
+      $acc | insert $it.id $value
+    } else {
+      $acc | insert $it.id $values
+    }
+  }
+}
+
+# Fetch the identifiers for an Open Library work
+export def open_library_get_work_identifiers [
+  --retries: int = 3 # The number of retries to perform when a request fails
+  --retry-delay: duration = 15sec # The interval between successive attempts when there is a failure
+]: [string -> record, string -> nothing] {
+  let open_library_work_id = $in
+  (
+    fetch_json
+      --retries $retries
+      --retry-delay $retry_delay
+      $"https://openlibrary.org/works/($open_library_work_id).json"
+      $"identifiers for Open Library work ($open_library_work_id)"
+    | open_library_parse_work_identifiers
+  )
+}
+
 # Fetch the identifiers for an Open Library edition
 export def open_library_get_edition_identifiers [
   --retries: int = 3 # The number of retries to perform when a request fails
   --retry-delay: duration = 15sec # The interval between successive attempts when there is a failure
-]: [string -> table] {
+]: [string -> record, string -> nothing] {
   let open_library_edition_id = $in
-  let open_library_api_work_url = $"https://openlibrary.org/books/($open_library_edition_id).json"
-  let request = {
-    (
-      http get
-        --full
-        --headers {
-          "User-Agent": $user_agent
-          "Accept": "application/json"
-        }
-        $"($open_library_api_work_url)"
-    )
-  }
-  let response = (
-    try {
-      retry_http $request $retries $retry_delay
-    } catch {|error|
-      log error $"Error getting identifiers for Open Library edition ($open_library_edition_id) from (ansi yellow)($open_library_api_work_url)(ansi reset): ($error.debug)"
-      return null
-    }
+  (
+    fetch_json
+      --retries $retries
+      --retry-delay $retry_delay
+      $"https://openlibrary.org/books/($open_library_edition_id).json"
+      $"identifiers for Open Library edition ($open_library_edition_id)"
+    | open_library_parse_edition_identifiers
   )
-  if ($response.status != 200) {
-    log error $"HTTP error (ansi red)($response.status)(ansi reset) getting identifiers for Open Library edition ($open_library_edition_id) from (ansi yellow)($open_library_api_work_url)(ansi reset): ($response.body)"
-    return null
-  }
-  let identifiers = (
-    let identifiers = $response.body.identifiers;
-    if ($identifiers | is-empty) {
-
-    } else {
-      $identifiers | reject --optional storygraph | columns | reduce --fold {} {|id, acc|
-        # todo Handle multiple values here
-        let values = $identifiers | get $id
-        if ($values | length) > 1 {
-          log warning $"Multiple values for identifier ($open_library_edition_identifier_translation_table | get $id): ($values). Ignoring all but the first."
-        }
-        $acc | insert ($open_library_edition_identifier_translation_table | get $id) ($values | first)
-      }
-    }
-  )
-  [copyright_date isbn_10 isbn_13 oclc_numbers publish_date] | reduce --fold $identifiers {|id, acc|
-    if ($response.body | get --optional $id | is-empty) {
-      $acc
-    } else {
-      if $id == "publish_date" {
-        $acc | insert "publication_date" ($response.body | get $id)
-      } else if $id == "copyright_date" {
-        $acc | insert "copyright_year" ($response.body | get $id)
-      } else {
-        let values = $response.body | get --optional $id
-        if ($values | is-empty) {
-          return $values
-        }
-        let id = (
-          if $id == "oclc_numbers" {
-            "oclc_number"
-          } else {
-            $id
-          }
-        )
-        if ($values | length) > 1 {
-          log warning $"Multiple values for identifier ($id): ($values). Ignoring all but the first."
-        }
-        let value = (
-          if $id in ["isbn_10" "isbn_13"] {
-            $values | first | str replace --all "-" ""
-          } else {
-            $values | first
-          }
-        )
-        $acc | insert $id $value
-      }
-    }
-  }
 }
 
 export def merge_identifiers [
@@ -614,13 +588,7 @@ export def merge_identifiers [
 
 export def empty_identifiers []: record -> list {
   let item = $in
-  $item | columns | reduce {|id, acc|
-    if ($item | get --optional $id | is-empty) {
-      $acc | append $id
-    } else {
-      $acc
-    }
-  }
+  $item | columns | where {|id| $item | get $id | is-empty }
 }
 
 # Calculate the SHA3-512 checksum for a file using rhash.
@@ -699,13 +667,10 @@ export def hash_blake3 []: [string -> string] {
 export def list_files_in_archive []: path -> list<path> {
   let archive = $in
   (
-    ^unzip -l $archive
+    # zipinfo mode prints only the file names, one per line.
+    ^unzip -Z1 $archive
     | lines
-    | drop nth 0 1
-    | drop 2
-    | str trim
-    | parse "{length}  {date} {time}   {name}"
-    | get name
+    | where not ($it | str ends-with "/")
     | uniq
     | sort
   )

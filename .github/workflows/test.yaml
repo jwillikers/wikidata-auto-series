@@ -1,0 +1,25 @@
+name: Run tests
+"on":
+  pull_request:
+    branches: ["main"]
+    paths:
+      - '**.nix'
+      - '**.nu'
+      - .github/workflows/test.yaml
+      - flake.lock
+  push:
+    branches: ["main"]
+    paths:
+      - '**.nix'
+      - '**.nu'
+      - .github/workflows/test.yaml
+      - flake.lock
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: DeterminateSystems/nix-installer-action@v23
+      - name: Run tests
+        run: nix develop --command nu wikidata-auto-series-lib-tests.nu

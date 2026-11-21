@@ -63,7 +63,7 @@ def main [
           if ($publication_date | is-empty) {
             $identifiers
           } else {
-            $identifiers | insert publication_date $publication_date
+            $identifiers | default {} | insert publication_date $publication_date
           }
         )
         $identifiers

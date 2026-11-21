@@ -3,7 +3,6 @@
   src = ./.;
   hooks = {
     check-added-large-files.enable = true;
-    check-builtin-literals.enable = true;
     check-case-conflicts.enable = true;
     check-executables-have-shebangs.enable = true;
 
@@ -14,7 +13,6 @@
     };
 
     check-json.enable = true;
-    check-python.enable = true;
     check-shebang-scripts-are-executable.enable = true;
     check-toml.enable = true;
     check-yaml.enable = true;
@@ -30,21 +28,6 @@
     # lychee.enable = true;
     mixed-line-endings.enable = true;
     nil.enable = true;
-
-    # pip-compile = {
-    #   enable = true;
-    #   package = pkgs.python3Packages.pip-tools;
-    #   entry = "${pkgs.python3Packages.pip-tools}/bin/pip-compile requirements-dev.in";
-    #   description = "Automatically compile requirements.";
-    #   name = "pip-compile";
-    #   files = "^requirements-dev\\.(in|txt)$";
-    #   pass_filenames = false;
-    # };
-
-    # todo
-    # pyright.enable = true;
-    python-debug-statements.enable = true;
-    pyupgrade.enable = true;
 
     strip-location-metadata = {
       name = "Strip location metadata";

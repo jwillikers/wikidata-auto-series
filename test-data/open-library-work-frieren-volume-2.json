@@ -1,0 +1,59 @@
+{
+  "title": "葬送のフリーレン 2",
+  "key": "/works/OL42575511W",
+  "type": {
+    "key": "/type/work"
+  },
+  "authors": [
+    {
+      "author": {
+        "key": "/authors/OL9758009A"
+      },
+      "type": {
+        "key": "/type/author_role"
+      }
+    },
+    {
+      "author": {
+        "key": "/authors/OL9758010A"
+      },
+      "type": {
+        "key": "/type/author_role"
+      }
+    }
+  ],
+  "subjects": [
+    "franchise:葬送のフリーレン",
+    "series:葬送のフリーレン",
+    "form:manga",
+    "form:manga volume",
+    "form:graphic novel",
+    "genre:adventure",
+    "genre:drama",
+    "genre:fantasy",
+    "intended public:shōnen",
+    "universe:葬送のフリーレン"
+  ],
+  "description": "At Eisen's urging, Frieren and her apprentice Fern head north seeking the land where heroes' souls are said to rest, which also happens to be the location of the Demon King's castle. Along the way, they meet Eisen's apprentice, whose fighting skills may come in handy—though the Demon King is long gone, his surviving minions have unfinished business with Frieren!",
+  "identifiers": {
+    "librarything": [
+      "26917988"
+    ],
+    "goodreads": [
+      "86829811"
+    ],
+    "wikidata": [
+      "Q139605035"
+    ]
+  },
+  "latest_revision": 6,
+  "revision": 6,
+  "created": {
+    "type": "/type/datetime",
+    "value": "2025-02-18T15:43:50.111435"
+  },
+  "last_modified": {
+    "type": "/type/datetime",
+    "value": "2026-05-02T13:58:39.942752"
+  }
+}
